@@ -1,11 +1,124 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Testimoni from '../components/Testimoni.astro';
 import Layout from '../layouts/Layout.astro';
 
+// import { Icon } from 'astro-icon/components'
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+	<div class="">
+
+		<!-- Hero Section -->
+		<section>
+			<div class="text-center pt-[12rem] space-y-[2rem]">
+				<h1 class="text-[4rem] leading-[1.2] font-[500] mb-4 font-sans tracking-tight">
+					Melayani tumbuh kembang anak,<br>orang tua, dan profesional.
+				</h1>
+				<p class="text-[1.1rem] leading-[1.4] font-[500] text-zinc-700/75 font-read tracking-wider">
+					Bangun semangat, keterampilan, dan hubungan<br>keluarga melalui program interaktif dan penuh makna.
+				</p>
+				<button class="p-[8px] rounded-xl border-2 cursor-pointer">
+					<div class="flex items-center space-x-[8px] font-sans">
+						<span class="leading-[1] p-[8px]">Hubungi Kami</span>
+						<div class="bg-zinc-900 text-stone-100 w-8 h-8 flex justify-center items-center rounded-lg">
+							->
+						</div>
+					</div>
+				</button>
+			</div>
+		</section>
+
+		<!-- Sercices Section -->
+		 <section class="my-[4rem]">
+			<div class="w-full grid grid-cols-2 select-none">
+				<div class="bg-red-300 aspect-[2/1] flex justify-center items-center">test</div>
+				<div class="bg-blue-300 aspect-[2/1] flex justify-center items-center">test</div>
+				<div class="bg-green-300 aspect-[2/1] flex justify-center items-center">test</div>
+				<div class="bg-yellow-300 aspect-[2/1] flex justify-center items-center">test</div>
+				<div class="bg-purple-300 aspect-[4/1] col-span-2 flex justify-center items-center">test</div>
+			</div>
+		 </section>
+
+		<!-- Testimoni -->
+		 <Testimoni />
+
+		<!-- Content -->
+		<section>
+			<div class="text-center my-[12rem]">
+				<h2 class="text-[32px] leading-[1.2] font-[600] mb-12 font-sans tracking-tight text-center">The BrainEvo way 🌱</h2>
+				<div class="w-full overflow-scroll no-scrollbar cursor-grab">
+					<div class="flex justify-center-safe space-x-8 w-max select-none">
+						<div class="w-[300px]"></div>
+						<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Menyenangkan</div>
+						<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Percaya diri</div>
+						<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Program lengkap</div>
+						<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Ahli berpengalaman</div>
+						<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Fleksibel & efektif</div>
+						<div class="w-[300px]"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Button -->
+		<section>
+			<div class="bg-zinc-800 text-stone-200 my-[8rem]">
+				<div class="flex flex-col justify-center items-center py-[6rem]">
+					<h2 class="text-[48px] leading-[1.2] font-[600] mb-4 font-sans tracking-tight">Tertarik bergabung bersama BrainEvo?</h2>
+					<div class="text-[16px] leading-[1.4] font-[500] text-stone-300/75 font-read tracking-wider">Hubuni kami atau daftarkan diri anda hari ini.</div>
+					<button class="p-[8px] rounded-xl bg-stone-200 text-zinc-800 hover:bg-stone-200/75 cursor-pointer mt-8">
+						<div class="flex items-center space-x-[8px] font-sans">
+							<span class="leading-[1] p-[8px]">Hubungi Kami</span>
+							<div class="bg-stone-900 text-stone-100 w-8 h-8 flex justify-center items-center rounded-lg">
+								->
+							</div>
+						</div>
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer wih Map -->
+		<footer>
+			<div class="flex flex-col justify-center items-center">
+				<div class="flex flex-col">
+					<h2 class="text-[48px] leading-[1.2] font-[700] mb-8 font-sans tracking-tight">Kantor Kami</h2>
+					<div class="flex">
+						<div class="w-[300px] h-[400px] bg-blue-300 rounded-2xl absolute">gambar gedung</div>
+						<div class="w-[300px]" />
+						<div class="space-y-4 m-8">
+							<div>
+								<h3 class="text-[24px] leading-[1] font-[600] mb-2 font-sans">Alamat</h3>
+								<div class="text-[16px] leading-[1.4] font-[500] text-zinc-900/75 font-read tracking-wider">Jl. Haji Baping No. 56,<br> Ciracas, Jakarta Timur</div>
+							</div>
+							<div>
+								<h3 class="text-[24px] leading-[1] font-[600] mb-2 font-sans">Jam Oprasional</h3>
+								<div class="text-[16px] leading-[1.4] font-[500] text-zinc-900/75 font-read tracking-wider">09:00 WIB - 18:00 WIB</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="bg-black/50 w-full h-[300px]">map</div>
+			</div>
+
+			<div class="flex items-center justify-between">
+				<div class="text-[16px] space-x-4 leading-[1.4] font-[500] text-zinc-900 tracking-wider flex items-center m-6 ml-12">
+					<div>©2025 BrainEvo Academy</div>
+					<span class="border-l border-black h-4" />
+					<div class="h-6 w-6 bg-red-300 rounded-full" />
+					<div class="h-6 w-6 bg-red-300 rounded-full" />
+					<div class="h-6 w-6 bg-red-300 rounded-full" />
+				</div>
+				<div class="space-x-4 text-[16px] leading-[1.4] font-[500] text-zinc-900 tracking-wider flex items-center m-6 mr-12">
+					<a href="/" class="hover:text-red-300">Privacy</a>
+					<span class="border-l border-black h-4" />
+					<a href="/" class="hover:text-red-300">Terms</a>
+					<span class="border-l border-black h-4" />
+					<a href="/" class="hover:text-red-300">Cookies</a>
+				</div>
+			</div>
+		</footer>
+	</div>
 </Layout>
