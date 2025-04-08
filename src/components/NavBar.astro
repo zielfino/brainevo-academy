@@ -1,16 +1,38 @@
-<nav class="translate-x-[calc(50vw-50%)] w-fit translate-y-[1rem] fixed select-none">
+---
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="translate-x-[calc(50vw-50%)] w-fit translate-y-4 fixed select-none z-[100]">
+    <div class="absolute w-full h-16 translate-y-12 bg-gradient-to-tr from-orange-50 to-orange-100 rounded-b-xl backdrop-blur-sm">
+        <div class="h-4"></div>
+        <div class="flex items-center justify-center w-full h-10">
+            <iconify-icon icon="gridicons:cross" class="absolute text-xl cursor-pointer right-4" />
+            <div><span class="font-bold cursor-pointer hover:underline">Lorem ipsum dolor</span> sit amet consectetur adipisicing elit.</div>
+        </div>
+    </div>
 
     <!-- navBox -->
-    <div class="p-3 bg-zinc-50/30 shadow-md backdrop-blur-sm rounded-xl w-[720px]">
+    <div class="p-3 bg-zinc-50/30 backdrop-blur-md rounded-xl w-[720px]">
         <div class="flex items-center justify-between w-full">
             <div class="ml-[12px]">
                 <a href="/">B Academy</a>
             </div>
             <div class="flex items-center justify-center space-x-6">
-                <div class="px-2.5 py-1 bg-zinc-300/75 rounded-md cursor-not-allowed">Home</div>
-                <a href="/about" class="px-2.5 py-1 rounded-md hover:bg-zinc-300/75" >About</a>
-                <a href="" class="px-2.5 py-1 rounded-md hover:bg-zinc-300/75" >Article</a>
-                <a href="" class="">
+                <a href="/" class={`px-2.5 py-1 rounded-md ${
+                    currentPath === "/" ? "bg-zinc-300/75 cursor-not-allowed" : "hover:bg-zinc-300/75"
+                  }`}
+                >Home</a>
+                <a href="/about" class={`px-2.5 py-1 rounded-md ${
+                    currentPath === "/about" ? "bg-zinc-300/75 cursor-not-allowed" : "hover:bg-zinc-300/75"
+                  }`}
+                >
+                About</a>
+                <a href="/" class={`px-2.5 py-1 rounded-md ${
+                    currentPath === "/article" ? "bg-zinc-300/75 cursor-not-allowed" : "hover:bg-zinc-300/75"
+                  }`}
+                >
+                Article</a>
+                <a href="/" class="">
                     <div class="px-3 py-1.5 bg-zinc-900 rounded-md hover:bg-zinc-900/75 text-stone-50">Contact</div>
                 </a>
             </div>

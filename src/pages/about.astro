@@ -1,16 +1,128 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Trusted from '../components/Trusted.astro';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
 import Layout from '../layouts/Layout.astro';
-import SimpleLayout from '../layouts/SimpleLayout.astro';
-import "../styles/global.css";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout title="About - BrainEvo Academy">
-	<Welcome />
-	<h1 class="text-3xl mx-12 font-bold underline text-shadow-2xs text-white">
-		Hello world!
-	</h1>
+	<div class="">
+
+		<!-- Hero Section -->
+		<section>
+			<div class="flex flex-col items-center justify-center">
+				<div class="text-center mt-[12rem] mb-12">
+					<h1 class="text-[3rem] leading-[1.2] font-[500] mb-4 font-sans tracking-tight">
+						Setiap anak, orang tua, dan individu memiliki <br>potensi luar biasa. Kami hadir untuk menemani <br>proses menemukannya.
+					</h1>
+					<!-- <button class="p-[8px] rounded-xl border-2 cursor-pointer">
+						<div class="flex items-center space-x-[8px] font-sans">
+							<span class="leading-[1] p-[8px]">Hubungi Kami</span>
+							<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-zinc-900 text-stone-100">
+								->
+							</div>
+						</div>
+					</button> -->
+				</div>
+				
+				<div class="my-8 w-3xl">
+					<p class="text-base font-medium tracking-wide text-justify text-zinc-700 font-read indent-8">
+						Di BrainEvo Academy, kami percaya bahwa setiap manusia memiliki keunikan yang patut ditemukan dan dikembangkan. Dengan pendekatan yang penuh kasih, kami hadir bukan hanya sebagai penyedia pelatihan, tetapi sebagai mitra yang melayani dengan hati—untuk anak-anak, orang tua, dan profesional. Kami ingin menjadi bagian dari perjalanan setiap individu menuju versi terbaik dari dirinya.
+					</p>
+				</div>
+			</div>
+		</section>
+				
+		<!-- Content -->
+		<section>
+			<div class="flex flex-col items-center justify-center">
+				<div class="my-8 w-3xl">
+					<h2 class="mb-4 font-sans text-4xl font-semibold">Tujuan & Nilai Inti</h2>
+					<p class="text-base font-medium tracking-wide text-justify text-zinc-700 font-read indent-8">
+						Kami mengembangkan solusi pengembangan diri yang nyata dan berlandaskan ilmu, untuk membentuk masa depan yang lebih baik. BrainEvo Academy memiliki tujuan yang jelas:
+					</p>
+					<ul class="my-4 text-base font-medium tracking-wide text-justify list-disc text-zinc-700 font-read [&>li]:ml-6">
+						<li>Memberikan edukasi berbasis potensi alami, agar setiap orang memahami kekuatan dalam dirinya.</li>
+						<li>Membekali orang tua dengan ilmu pengasuhan yang sesuai dengan karakter anak.</li>
+						<li>Mendampingi perusahaan dan tim dalam membangun budaya kerja yang kolaboratif dan efektif.</li>
+						<li>Menghadirkan pelatihan berkualitas yang tidak hanya menyentuh pikiran, tapi juga menyentuh hati.</li>
+					</ul>
+					<p class="text-base font-medium tracking-wide text-justify text-zinc-700 font-read indent-8">
+						Kami ingin setiap peserta pelatihan merasa lebih yakin, lebih siap, dan lebih mampu menghadapi tantangan kehidupan.
+					</p>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Content -->
+		<section>
+			<div class="my-8">
+				<h2 class="text-[32px] leading-[1.2] font-[600] mb-12 font-sans tracking-tight text-center">Mengapa BrainEvo Academy?</h2>
+				<div class="flex justify-center w-full overflow-scroll no-scrollbar cursor-grab">
+					<div class="select-none-safe w-3xl">
+						<div class="flex justify-center space-x-8 -translate-x-24 w-max">
+							<!-- <div class="w-[50px]"></div>	 -->
+							<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">12+ tahun pengalaman</div>
+							<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Metode ilmiah & terbukti</div>
+							<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Pendekatan personal</div>
+							<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Dipercaya ribuan klien</div>
+							<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Fokus pada hasil nyata</div>
+							<div class="w-[50px]"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+				
+		<!-- Content -->
+		<section>
+			<div class="flex flex-col items-center justify-center">
+				<div class="my-8 space-y-4 w-3xl">
+					<h2 class="mb-4 font-sans text-4xl font-semibold">Kisah Kami</h2>
+					<p class="text-base font-medium tracking-wide text-justify text-zinc-700 font-read indent-8">
+						Berawal dari mimpi untuk membantu anak-anak lebih percaya diri, kami kini tumbuh menjadi pusat pelatihan yang menyentuh ribuan kehidupan.
+					</p>
+					<p class="text-base font-medium tracking-wide text-justify text-zinc-700 font-read indent-8">
+						Didirikan pada tahun 2010, BrainEvo Academy memulai langkahnya dengan satu keyakinan sederhana: bahwa potensi setiap anak bisa ditumbuhkan jika diberikan pendekatan yang tepat. Kami memulai dengan pelatihan sederhana di sekolah-sekolah, lalu berkembang menjadi pusat edukasi multidisiplin yang menangani kebutuhan anak-anak, orang tua, hingga karyawan perusahaan.
+					</p>
+					<p class="text-base font-medium tracking-wide text-justify text-zinc-700 font-read indent-8">
+						Kini, kami terus bergerak—menyempurnakan metode, membangun jejaring, dan merancang solusi yang lebih relevan untuk dunia yang terus berubah. Kami percaya, perubahan besar selalu dimulai dari satu niat tulus untuk melayani.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Trusted -->
+		 <Trusted />
+		
+		<!-- Teams -->
+		<section>
+			<div class="flex flex-col items-center justify-center my-24">
+				<h2 class="mb-4 font-sans text-4xl font-semibold">Tim kami</h2>
+				<div class="flex space-x-8">
+					<div>
+						<div class="w-[200px] aspect-[4/5] bg-blue-300 rounded-lg"></div>
+						<h3 class="mt-4 mb-2 font-sans text-base font-semibold text-red-500">Haris Yusuf Arifin</h3>
+						<div class="text-sm leading-5 font-read text-zinc-900/70" >Praktisi Analisa Sidikjari <br>Midbrain Activation Coach</div>
+					</div>
+					<div>
+						<div class="w-[200px] aspect-[4/5] bg-blue-300 rounded-lg"></div>
+						<h3 class="mt-4 mb-2 font-sans text-base font-semibold text-red-500">Ranny Rifqianie Taufiq, S.Hi</h3>
+						<div class="text-sm leading-5 font-read text-zinc-900/70" >Praktisi Parenting <br>Praktisi Analisis Sidikjari <br>Fun Motivation Coach <br>Midbrain Activation Coach</div>
+					</div>
+					<div>
+						<div class="w-[200px] aspect-[4/5] bg-blue-300 rounded-lg"></div>
+						<h3 class="mt-4 mb-2 font-sans text-base font-semibold text-red-500">Suyoto, SE.</h3>
+						<div class="text-sm leading-5 font-read text-zinc-900/70" >Praktisi Analisa Sidikjari</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Button -->
+		 <CTA />
+
+		<!-- Footer -->
+		 <Footer />
+	</div>
 </Layout>
