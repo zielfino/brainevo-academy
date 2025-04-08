@@ -27,12 +27,12 @@ const currentPath = Astro.url.pathname;
                   }`}
                 >
                 About</a>
-                <a href="/" class={`px-2.5 py-1 rounded-md ${
+                <a href="/article" class={`px-2.5 py-1 rounded-md ${
                     currentPath === "/article" ? "bg-zinc-300/75 cursor-not-allowed" : "hover:bg-zinc-300/75"
                   }`}
                 >
                 Article</a>
-                <a href="/" class="">
+                <a href="/contact" class="">
                     <div class="px-3 py-1.5 bg-zinc-900 rounded-md hover:bg-zinc-900/75 text-stone-50">Contact</div>
                 </a>
             </div>
