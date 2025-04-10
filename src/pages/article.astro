@@ -1,11 +1,16 @@
 ---
+import Blogs from '../components/Blogs.astro';
+import Footer from '../components/Footer.astro';
+import Pagination from '../components/Pagination.astro';
 import Layout from '../layouts/Layout.astro';
+
+export const prerender = false;
 ---
 <Layout>
     <div class="">
         <!-- Featured -->
         <section>
-            <div class="py-48 flex justify-center">
+            <div class="pt-48 mb-16 flex justify-center">
                 <div class="space-x-12 flex justify-center items-center">
                     <div class="w-[40vw] aspect-[3/2] bg-blue-300 rounded-4xl"></div>
                     <div class="w-[480px]">
@@ -15,40 +20,52 @@ import Layout from '../layouts/Layout.astro';
                         <p class="text-base font-medium tracking-wide text-justify text-zinc-700/75 font-read indent-8">
                             Di BrainEvo Academy, kami percaya bahwa setiap manusia memiliki keunikan yang patut ditemukan dan dikembangkan. Dengan pendekatan yang penuh kasih, kami hadir bukan hanya sebagai penyedia pelatihan.
                         </p>
-                        <div class="text-blue-500 text-xl my-4 hover:underline cursor-pointer">Lanjut Baca -></div>
+                        <div class="text-blue-500 text-xl my-4 hover:underline cursor-pointer select-none">Lanjut Baca -></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Articles -->
-         <section class="w-full flex justify-center">
+         <section class="w-full flex justify-center my-16">
             <div class="grid grid-cols-3 w-[1024px] gap-4">
                 <!-- List -->
                 <div class="col-span-2 grid grid-cols-2 gap-4">
-                    <div>
-                        <div class="bg-blue-300 aspect-[3/2] rounded-2xl mb-4"></div>
-                        <div>
-                            <div>Lorem ipsum dolor sit elit. Porro earum, nihil dolor, perferendis? </div>
-                            <div>Di BrainEvo Academy, kami percaya bahwa setiap manusia memiliki keunikan yang ...</div>
-                            <div>Lanjut baca -></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="bg-blue-300 aspect-[3/2] rounded-2xl mb-4"></div>
-                        <div>
-                            <div>Lorem ipsum dolor sit elit. Porro earum, nihil dolor, perferendis? </div>
-                            <div>Di BrainEvo Academy, kami percaya bahwa setiap manusia memiliki keunikan yang ...</div>
-                            <div>Lanjut baca -></div>
-                        </div>
-                    </div>
+                    <!-- Cards -->
+                     <Blogs />
+                     
+                    <!-- Pagination -->
+                     <Pagination />
                 </div>
     
                 <!-- aside -->
                 <aside>
-                    <div class="bg-red-300 h-screen rounded-2xl flex justify-center items-center">test aside</div>
+                    <div class="sticky top-[20dvh]">
+                        <div class=" bg-red-300 h-[50dvh] rounded-2xl flex justify-center items-center">test</div>
+                        <div class="mt-4">
+                            <div class="mb-2 text-xl font-semibold select-none">Share artikel ini</div>
+                            <div class="grid grid-cols-5 gap-2">
+                                <a href="">                                
+                                    <iconify-icon icon="fa6-brands:google" class="text-red-50 bg-red-400 rounded-xl aspect-square flex justify-center items-center text-[2.1rem]" />
+                                </a>
+                                <a href="">                                
+                                    <iconify-icon icon="fa6-brands:facebook-f" class="text-sky-50 bg-sky-500 rounded-xl aspect-square flex justify-center items-center text-[2.2rem]" />
+                                </a>
+                                <a href="">                                
+                                    <iconify-icon icon="fa6-brands:x-twitter" class="text-zinc-50 bg-zinc-700 rounded-xl aspect-square flex justify-center items-center text-[2.2rem]" />
+                                </a>
+                                <a href="">                                
+                                    <iconify-icon icon="fa6-brands:whatsapp" class="text-emerald-50 bg-emerald-400 rounded-xl aspect-square flex justify-center items-center text-[2.6rem]" />
+                                </a>
+                                <a href="">                                
+                                    <iconify-icon icon="fa6-brands:instagram" class="text-purple-50 bg-gradient-to-tr from-amber-400 via-pink-400 to-purple-400 rounded-xl aspect-square flex justify-center items-center text-[2.6rem]" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </aside>
             </div>
         </section>
+        <Footer />
     </div>
 </Layout>

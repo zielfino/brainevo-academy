@@ -1,6 +1,94 @@
 ---
+import Footer from '../components/Footer.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout>
-    <div class="h-[200dvh]"></div>
+    <section class="">
+        <div class="flex flex-col items-center justify-center pt-[8rem]">
+            <div class="flex flex-col">
+                <h1 class="mb-8 font-sans tracking-tight text-[48px] leading-[1.2] font-[700]">Kontak Kami</h1>
+                <div class="flex">
+                    <div class="absolute bg-blue-300 w-[300px] h-[400px] rounded-2xl">gambar gedung</div>
+                    <div class="w-[300px]" />
+                    <div class="m-8 space-y-4">
+                        <div>
+                            <h3 class="mb-2 font-sans text-[24px] leading-[1] font-[600]">Alamat</h3>
+                            <div class="tracking-wider text-[16px] leading-[1.4] font-[500] text-zinc-900/70 font-read">Jl. Haji Baping No. 56,<br> Ciracas, Jakarta Timur</div>
+                        </div>
+                        <div>
+                            <h3 class="mb-2 font-sans text-[24px] leading-[1] font-[600]">Kontak</h3>
+                            <div class="tracking-wider text-[16px] leading-[1.4] font-[500] text-zinc-900/70 font-read">+62 812 1234 6758</div>
+                            <div class="tracking-wider text-[16px] leading-[1.4] font-[500] text-zinc-900/70 font-read">info@brainevoacademy.com</div>
+                        </div>
+                        <div>
+                            <h3 class="mb-2 font-sans text-[24px] leading-[1] font-[600]">Jam Oprasional</h3>
+                            <div class="tracking-wider text-[16px] leading-[1.4] font-[500] text-zinc-900/70 font-read">09:00 WIB - 18:00 WIB</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full bg-black/50 h-[300px]">map</div>
+        </div>
+        
+        <div class="w-full flex justify-center">
+            <div class="w-[720px] my-32">
+                <div class="w-full">
+                    <h2 class="mb-8 tracking-tight text-[32px] leading-[1.2] font-[700]">Kontak Kami</h2>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="email">Email anda <i class="text-zinc-900/50">(untuk kita membalas pesan)</i></label>
+                            <input name="email"
+                                type="text" 
+                                placeholder="name@agerrstudio.com"
+                                class="flex items-center bg-stone-200 text-zinc-900 p-3 rounded-lg mt-[0.75rem] mb-[1rem]
+                                w-full ring-[1.25px] ring-stone-300 focus-within:ring-[#faba66] outline-none"
+                            />
+                        </div>
+                        <div>
+                            <label for="topic">Topik layanan</label>
+                            <select name="topic" class="flex items-center bg-stone-200 text-zinc-900 p-3 rounded-lg mt-[0.75rem] mb-[1rem]
+                            w-full ring-[1.25px] ring-stone-300 outline-none focus-within:ring-[#faba66] cursor-pointer">
+                                <option value="" disabled selected>Select a topic</option>
+                                <option value="design">Design</option>
+                                <option value="development">Development</option>
+                                <option value="marketing">Marketing</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject">Subjek</label>
+                            <input name="subject"
+                                type="text" 
+                                placeholder="Let us know how we can help you"
+                                class="flex items-center bg-stone-200 text-zinc-900 p-3 rounded-lg mt-[0.75rem] mb-[1rem]
+                                w-full ring-[1.25px] ring-stone-300 focus-within:ring-[#faba66] outline-none"
+                            />
+                    </div>
+                    <div>
+                        <label for="message">Pesan anda</label>
+                        <textarea name="message"
+                            placeholder="Tuliskan disini.."
+                            class="flex bg-stone-200 p-3 rounded-lg mt-[0.75rem] mb-[1rem]
+                            ring-[1.25px] ring-stone-300 focus-within:ring-[#faba66] outline-none w-full resize-none h-24 text-zinc-900"></textarea>
+                    </div>
+                    <div class="flex items-start gap-2 my-4 cursor-pointer">
+                        <input id="terms" type="checkbox" class="mt-1 accent-[#faba66] text-stone-100 bg-stone-100 cursor-pointer w-4 h-4">
+                        <label for="terms" class="text-sm text-zinc-900 cursor-pointer">
+                            "Dengan mengirimkan formulir ini, Anda menyatakan bahwa Anda telah membaca dan menyetujui
+                            <a href="/" class="text-[#faba66] hover:underline">Ketentuan Layanan</a> dan
+                            <a href="/" class="text-[#faba66] hover:underline">Pernyataan Privasi</a> kami.
+                        </label>
+                    </div>
+                    <button type="submit" class="bg-[#faba66] text-white py-3 px-5 font-[500] rounded-lg hover:bg-opacity-70 transition-all">
+                        Send Messages
+                    </button>
+    
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+         <Footer/>
+    </section>
 </Layout>

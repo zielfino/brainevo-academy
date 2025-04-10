@@ -1,0 +1,38 @@
+---
+import { contentfulClient } from "../lib/contentful";
+import type { Entry } from "contentful";
+
+const PER_PAGE = 6;
+
+// Ambil semua entry (tanpa define field-nya)
+const entries = await contentfulClient.getEntries<Entry<unknown>>({
+  content_type: "blogPostBrainEvoAcademy",
+});
+
+// Hitung total halaman
+const totalPosts = entries.total;
+const totalPages = Math.ceil(totalPosts / PER_PAGE);
+const page = parseInt(Astro.url.searchParams.get("page") ?? "1");
+---
+<div class="flex flex-wrap justify-center col-span-2 gap-2 h-[50px]">
+    {Array.from({ length: totalPages }, (_, i) => {
+        const pageNumber = i + 1;
+        const isCurrent = pageNumber === page;
+    
+        return isCurrent ? (
+        <div
+            class="px-4 py-3 font-semibold text-white border rounded-lg cursor-default select-none bg-sky-600"
+            aria-current="page"
+        >
+            {pageNumber}
+        </div>
+        ) : (
+        <a
+            href={`/article?page=${pageNumber}`}
+            class="px-4 py-3 transition-colors border rounded-lg select-none text-sky-600 border-sky-600 hover:bg-sky-100"
+        >
+            {pageNumber}
+        </a>
+        );
+    })}
+</div>

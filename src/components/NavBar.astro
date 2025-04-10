@@ -2,11 +2,16 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="translate-x-[calc(50vw-50%)] w-fit translate-y-4 fixed select-none z-[100]">
-    <div class="absolute w-full h-16 translate-y-12 bg-gradient-to-tr from-orange-50 to-orange-100 rounded-b-xl backdrop-blur-sm">
+<nav class="fixed translate-y-4 select-none translate-x-[calc(50vw-50%)] w-fit z-[50]">
+    <div class="absolute hidden w-full h-16 translate-y-12 bg-gradient-to-tr from-orange-50 to-orange-100 rounded-b-xl backdrop-blur-sm" data-index="navNote">
         <div class="h-4"></div>
         <div class="flex items-center justify-center w-full h-10">
-            <iconify-icon icon="gridicons:cross" class="absolute text-xl cursor-pointer right-4" />
+            <button class="absolute flex items-center justify-center cursor-pointer right-4" onclick=`
+            document.querySelector('[data-index="navNote"]').classList.add('hidden');
+            sessionStorage.setItem('navNoteHidden', 'true');
+          `>
+                <iconify-icon icon="gridicons:cross" class="text-xl" />
+            </button>
             <div><span class="font-bold cursor-pointer hover:underline">Lorem ipsum dolor</span> sit amet consectetur adipisicing elit.</div>
         </div>
     </div>
@@ -15,27 +20,34 @@ const currentPath = Astro.url.pathname;
     <div class="p-3 bg-zinc-50/30 backdrop-blur-md rounded-xl w-[720px]">
         <div class="flex items-center justify-between w-full">
             <div class="ml-[12px]">
-                <a href="/">B Academy</a>
+                <a href="/" class={`${ currentPath === "/" ? "pointer-events-none" : "" }`}>B Academy</a>
             </div>
             <div class="flex items-center justify-center space-x-6">
                 <a href="/" class={`px-2.5 py-1 rounded-md ${
-                    currentPath === "/" ? "bg-zinc-300/75 cursor-not-allowed" : "hover:bg-zinc-300/75"
+                    currentPath === "/" ? "bg-zinc-300/75 pointer-events-none" : "hover:bg-zinc-300/75"
                   }`}
                 >Home</a>
                 <a href="/about" class={`px-2.5 py-1 rounded-md ${
-                    currentPath === "/about" ? "bg-zinc-300/75 cursor-not-allowed" : "hover:bg-zinc-300/75"
+                    currentPath === "/about" ? "bg-zinc-300/75 pointer-events-none" : "hover:bg-zinc-300/75"
                   }`}
                 >
                 About</a>
                 <a href="/article" class={`px-2.5 py-1 rounded-md ${
-                    currentPath === "/article" ? "bg-zinc-300/75 cursor-not-allowed" : "hover:bg-zinc-300/75"
+                    currentPath === "/article" ? "bg-zinc-300/75 pointer-events-none" : "hover:bg-zinc-300/75"
                   }`}
                 >
                 Article</a>
-                <a href="/contact" class="">
-                    <div class="px-3 py-1.5 bg-zinc-900 rounded-md hover:bg-zinc-900/75 text-stone-50">Contact</div>
+                <a href="/contact">
+                    <div class="px-3 rounded-md py-1.5 bg-zinc-900 hover:bg-zinc-900/75 text-stone-50">Contact</div>
                 </a>
             </div>
         </div>
     </div>
 </nav>
+<script>
+  const session = sessionStorage.getItem('navNoteHidden') === 'true';
+  if (!session) {
+    const element = document.querySelector('[data-index="navNote"]');
+    if (element) element.classList.remove('hidden');
+  }
+</script>

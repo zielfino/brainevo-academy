@@ -1,0 +1,45 @@
+---
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+
+export interface Props {
+    title: string;
+    author: string;
+    date: string;
+    index: number;
+    content: RichTextDocument;
+}
+  
+const { title, author, date, content, index } = Astro.props;
+
+const daydate = new Date(date).toLocaleDateString("id-ID", {
+    weekday: "long",   // "Rabu"
+    day: "2-digit",    // "05"
+    month: "short",    // "Apr"
+    year: "numeric",   // "2025"
+});
+---
+<section class="fixed top-0 left-0 flex items-center justify-center hidden w-screen h-screen cursor-pointer z-[100] bg-zinc-900/50" data-index={`m-${index}`} onclick={`document.querySelector('[data-index="m-${index}"]').classList.add('hidden')`}>
+    <div class="cursor-default bg-stone-100 rounded-4xl" onclick="event.stopPropagation()">
+        <div class="flex justify-center overflow-scroll w-[75vw] aspect-[5/3] no-scrollbar mask-y-from-90% mask-y-to-100%">
+            <button class="absolute flex items-center justify-center w-6 cursor-pointer translate-y-7 translate-x-[35vw] aspect-square" onclick={`document.querySelector('[data-index="m-${index}"]').classList.add('hidden')`}>
+                <iconify-icon icon="gridicons:cross" class="text-xl" />
+            </button>
+            <div class="w-[720px]">
+                <!-- Header -->
+                <div class="mb-12">
+                    <h2 class="m-8 mt-16 mb-4 font-sans tracking-tight text-center text-[2.6rem] leading-[1.2] font-[600]">
+                        {title} 
+                    </h2>
+                    <div class="flex items-center justify-center space-x-2 text-sm font-read text-zinc-800/60 font-[400]">
+                        <div>{author}</div>  
+                        <div class="text-4xl select-none text-zinc-800/75">·</div>
+                        <div>{daydate}</div>
+                    </div>
+                </div>
+                <div class="pb-32">
+                    <article set:html={documentToHtmlString(content)}></article>  
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

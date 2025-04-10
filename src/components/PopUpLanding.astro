@@ -1,0 +1,19 @@
+<section class="fixed flex items-center justify-center hidden w-screen z-[100] h-[100dvh] bg-zinc-900/50" data-index="popUp">
+    <div class="relative flex items-center justify-center bg-stone-100 rounded-4xl w-[75vw] aspect-[5/3]">
+        <button class="absolute cursor-pointer top-8 right-8"
+        onclick=`
+        document.querySelector('[data-index="popUp"]').classList.add('hidden');
+        sessionStorage.setItem('popUpHidden', 'true');
+      `>
+            <iconify-icon icon="gridicons:cross" class="text-2xl" />
+        </button>
+        test
+    </div>
+</section>   
+<script>
+  const isHide = sessionStorage.getItem('popUpHidden') === 'true';
+  if (!isHide) {
+    const el = document.querySelector('[data-index="popUp"]');
+    if (el) el.classList.remove('hidden');
+  }
+</script>

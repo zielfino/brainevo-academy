@@ -39,4 +39,23 @@ a, img, svg, video, button {
     border-bottom-left-radius: 0.5rem; /* 8px */
     border-bottom-right-radius: 0.5rem; /* 8px */
 }
-  
+
+
+
+/* Article */
+
+article > h2 {
+    @apply mt-10 mb-4 font-sans tracking-tight text-[32px] leading-[1.2] font-[500]
+}
+
+article > h3 {
+    @apply mt-8 mb-4 font-sans text-[24px] leading-[1.2] font-[500]
+}
+
+article > p {
+    @apply font-read indent-8 mb-2 text-base tracking-wide text-justify
+}
+
+article > ul > li {
+    @apply list-disc ml-6
+}
