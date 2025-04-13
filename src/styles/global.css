@@ -32,12 +32,49 @@ a, img, svg, video, button {
 }
 
 
+/* Tailwin Animation */
+@layer utilities {
+    @keyframes scroll {
+      0% {
+        transform: translateX(0%);      
+      }
+      100% {
+        transform: translateX(-50%);    
+      }
+    }
+  
+    .animate-scroll {
+        animation: scroll 10s linear infinite;
+    }
+}
+
+
 /* CUSTOM */
 .uniq-window {
     border-top-left-radius: 150px;
     border-top-right-radius: 150px;
     border-bottom-left-radius: 0.5rem; /* 8px */
     border-bottom-right-radius: 0.5rem; /* 8px */
+}
+
+
+
+/* Landing */
+
+#landing h2 {
+    @apply max-[375px]:text-3xl max-[1024px]:text-4xl text-5xl select-none
+}
+
+#landing h3 {
+    @apply max-[375px]:text-xl max-[1024px]:text-2xl text-[32px] select-none font-[600]
+}
+
+#landing h6 {
+    @apply max-[375px]:text-sm max-[1024px]:text-base text-lg select-none
+}
+
+#landing p {
+    @apply max-[375px]:text-xs max-[1024px]:text-sm text-base
 }
 
 
@@ -53,7 +90,8 @@ article > h3 {
 }
 
 article > p {
-    @apply font-read indent-8 mb-2 text-base tracking-wide text-justify
+    @apply font-read indent-8 mb-2 tracking-wide text-justify 
+    max-[375px]:text-xs max-[1024px]:text-sm text-base
 }
 
 article > ul > li {

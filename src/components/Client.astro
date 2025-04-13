@@ -1,0 +1,116 @@
+---
+import { contentfulClient } from "../lib/contentful";
+import type { EntryFieldTypes, Asset } from "contentful";
+
+// Interface untuk data dari Contentful
+interface BlogPost {
+	contentTypeId: "brainEvoClients";
+	fields: {
+		name: EntryFieldTypes.Text;
+		logo: Asset;
+	};
+}
+
+// Fetch data dari Contentful
+const entries = await contentfulClient.getEntries<BlogPost>({
+  	content_type: "brainEvoClients",
+});
+
+// Ambil array items
+const clients = entries.items;
+---
+<div class="flex w-max space-x-4 ml-4">
+    
+    {clients.map((item, index) => (
+        <div class="aspect-[2/1] overflow-hidden rounded-lg
+            max-[720px]:w-[130px]
+            max-[1024px]:w-[170px]
+            w-[200px]"
+            data-index={index}
+        >
+          <img
+            src={`https:${item.fields.logo.fields.file.url}`}
+            alt={item.fields.name}
+            loading="lazy"
+            class="w-full h-full object-cover"
+          />
+        </div>
+    ))}
+</div>
+
+
+<!-- 
+<div class="flex w-max space-x-4 ml-4">
+    <div class="aspect-[2/1] overflow-hidden rounded-lg
+     max-[720px]:w-[130px]
+     max-[1024px]:w-[170px]
+     w-[200px]">
+        <img src="https://placehold.co/400x200?text=Client1&font=roboto" alt="Client Logo" />
+    </div>
+    <div class="aspect-[2/1] overflow-hidden rounded-lg
+     max-[720px]:w-[130px]
+     max-[1024px]:w-[170px]
+     w-[200px]">
+        <img src="https://placehold.co/400x200?text=Client2&font=roboto" alt="Client Logo" />
+    </div>
+    <div class="aspect-[2/1] overflow-hidden rounded-lg
+     max-[720px]:w-[130px]
+     max-[1024px]:w-[170px]
+     w-[200px]">
+        <img src="https://placehold.co/400x200?text=Client3&font=roboto" alt="Client Logo" />
+    </div>
+    <div class="aspect-[2/1] overflow-hidden rounded-lg
+     max-[720px]:w-[130px]
+     max-[1024px]:w-[170px]
+     w-[200px]">
+        <img src="https://placehold.co/400x200?text=Client4&font=roboto" alt="Client Logo" />
+    </div>
+    <div class="aspect-[2/1] overflow-hidden rounded-lg
+     max-[720px]:w-[130px]
+     max-[1024px]:w-[170px]
+     w-[200px]">
+        <img src="https://placehold.co/400x200?text=Client5&font=roboto" alt="Client Logo" />
+    </div>
+    <div class="aspect-[2/1] overflow-hidden rounded-lg
+     max-[720px]:w-[130px]
+     max-[1024px]:w-[170px]
+     w-[200px]">
+        <img src="https://placehold.co/400x200?text=Client6&font=roboto" alt="Client Logo" />
+    </div>
+    <div class="aspect-[2/1] overflow-hidden rounded-lg
+     max-[720px]:w-[130px]
+     max-[1024px]:w-[170px]
+     w-[200px]">
+        <img src="https://placehold.co/400x200?text=Client7&font=roboto" alt="Client Logo" />
+    </div>
+    <div class="aspect-[2/1] overflow-hidden rounded-lg
+     max-[720px]:w-[130px]
+     max-[1024px]:w-[170px]
+     w-[200px]">
+        <img src="https://placehold.co/400x200?text=Client8&font=roboto" alt="Client Logo" />
+    </div>
+    <div class="aspect-[2/1] overflow-hidden rounded-lg
+     max-[720px]:w-[130px]
+     max-[1024px]:w-[170px]
+     w-[200px]">
+        <img src="https://placehold.co/400x200?text=Client9&font=roboto" alt="Client Logo" />
+    </div>
+    <div class="aspect-[2/1] overflow-hidden rounded-lg
+     max-[720px]:w-[130px]
+     max-[1024px]:w-[170px]
+     w-[200px]">
+        <img src="https://placehold.co/400x200?text=Client10&font=roboto" alt="Client Logo" />
+    </div>
+    <div class="aspect-[2/1] overflow-hidden rounded-lg
+     max-[720px]:w-[130px]
+     max-[1024px]:w-[170px]
+     w-[200px]">
+        <img src="https://placehold.co/400x200?text=Client11&font=roboto" alt="Client Logo" />
+    </div>
+    <div class="aspect-[2/1] overflow-hidden rounded-lg
+     max-[720px]:w-[130px]
+     max-[1024px]:w-[170px]
+     w-[200px]">
+        <img src="https://placehold.co/400x200?text=Client12&font=roboto" alt="Client Logo" />
+    </div>
+</div> -->

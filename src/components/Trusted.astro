@@ -1,20 +1,15 @@
-<section>
-    <div class="text-center my-[4rem]">
-        <h2 class="text-[32px] leading-[1.2] font-[600] mb-6 font-sans tracking-tight">Dipercaya Ratusan Klien</h2>
-        <div class="w-full overflow-scroll no-scrollbar">
-            <div class="flex space-x-4 justify-center-safe w-max">
-                <div class="w-[200px] h-[100px] bg-blue-300 rounded-lg"></div>
-                <div class="w-[200px] h-[100px] bg-blue-300 rounded-lg"></div>
-                <div class="w-[200px] h-[100px] bg-blue-300 rounded-lg"></div>
-                <div class="w-[200px] h-[100px] bg-blue-300 rounded-lg"></div>
-                <div class="w-[200px] h-[100px] bg-blue-300 rounded-lg"></div>
-                <div class="w-[200px] h-[100px] bg-blue-300 rounded-lg"></div>
-                <div class="w-[200px] h-[100px] bg-blue-300 rounded-lg"></div>
-                <div class="w-[200px] h-[100px] bg-blue-300 rounded-lg"></div>
-                <div class="w-[200px] h-[100px] bg-blue-300 rounded-lg"></div>
-                <div class="w-[200px] h-[100px] bg-blue-300 rounded-lg"></div>
-                <div class="w-[200px] h-[100px] bg-blue-300 rounded-lg"></div>
-                <div class="w-[200px] h-[100px] bg-blue-300 rounded-lg"></div>
+---
+import Client from "./Client.astro";
+---
+
+<section id="landing">
+    <div class="text-center my-[6rem]">
+        <h3 class="leading-[1.2] font-sans tracking-tight mb-12 max-[720px]:mb-8">Dipercaya Ratusan Klien</h3>
+        <div class="w-full overflow-hidden no-scrollbar
+        mask-x-from-70% max-[720px]:mask-x-from-80% mask-x-to-90% max-[720px]:mask-x-to-95%">
+            <div class="flex animate-scroll w-max">
+                <Client />
+                <Client />
             </div>
         </div>
     </div>

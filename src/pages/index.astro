@@ -4,6 +4,10 @@ import Trusted from '../components/Trusted.astro';
 import CTA from '../components/CTA.astro';
 import Layout from '../layouts/Layout.astro';
 import PopUpLanding from '../components/PopUpLanding.astro';
+import banner from '../assets/images/landingbackground.jpg';
+import building from '../assets/images/building.jpg';
+import Content from '../components/Content.astro';
+import { build } from 'astro';
 
 // import { Icon } from 'astro-icon/components'
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -12,103 +16,171 @@ import PopUpLanding from '../components/PopUpLanding.astro';
 
 <Layout>
 	<PopUpLanding/>
-	<div class="">
+	<div class="bg-stone-100">
 
+		<div class="w-full justify-center z-0 flex absolute">
+			<img src={banner.src} oncontextmenu="return false;" class="w-full object-cover object-[center_60%] inset-0
+			 max-[720px]:h-[10rem] max-[1024px]:h-[12rem] h-[14rem] min-2xl:h-[16rem]
+			 mask-radial-farthest-corner mask-b-from-70% mask-radial-at-[50%_0%] mask-radial-from-30% mask-radial-to-80%" alt="Client Logo" />
+		</div>
 		<!-- Hero Section -->
-		<section>
-			<div class="text-center pt-[12rem] space-y-[2rem]">
-				<h1 class="text-[4rem] leading-[1.2] font-[500] mb-4 font-sans tracking-tight">
-					Melayani tumbuh kembang anak,<br>orang tua, dan profesional.
+		<section class="relative z-10" id="landing">
+			<div class="flex flex-col items-center-safe text-center space-y-[2rem] select-none 
+			 max-[720px]:pt-[10rem] max-[1024px]:pt-[12rem] pt-[14rem] min-2xl:pt-[16rem] 
+			 mb-[8rem] max-[720px]:mb-[6rem]">
+
+				<!-- Header Text -->
+				<h1 class="text-[64px] leading-[1.1] max-[720px]:font-[600] font-[500] font-sans tracking-tight w-[900px]
+				max-[375px]:text-3xl max-[375px]:w-[300px]
+				max-[550px]:text-4xl max-[550px]:w-[350px] 
+				max-[820px]:mb-4 max-[820px]:w-[455px]
+				max-[1024px]:text-5xl max-[1024px]:w-[680px]">
+					Melayani tumbuh kembang anak, orang tua, dan profesional.
 				</h1>
-				<p class="text-[1.1rem] leading-[1.4] font-[500] text-zinc-700/75 font-read tracking-wider">
-					Bangun semangat, keterampilan, dan hubungan<br>keluarga melalui program interaktif dan penuh makna.
+				<p class="text-[16px] leading-[1.4] max-[720px]:font-[400] font-[500] text-zinc-700/75 font-read tracking-wider w-[500px]
+				max-[375px]:w-[300px]
+				max-[550px]:w-[350px]
+				max-[820px]:w-[340px] max-[820px]:mb-4
+				max-[1024px]:w-[430px]
+				max-[1024px]:min-w-[300px]max-[1024px]:px-6">
+					Bangun semangat, keterampilan, dan hubungan keluarga melalui program interaktif dan penuh makna.
 				</p>
-				<button class="p-[8px] rounded-xl border-2 cursor-pointer">
-					<div class="flex items-center space-x-[8px] font-sans">
-						<span class="leading-[1] p-[8px]">Hubungi Kami</span>
-						<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-zinc-900 text-stone-100">
-							->
+
+				<!-- CTA Button -->
+				<button class="p-[8px] text-zinc-900 rounded-xl border-2 border-zinc-900 transition-all bg-stone-100 
+				hover:drop-shadow-md hover:drop-shadow-zinc-500/30 drop-shadow-xs drop-shadow-zinc-500/30 
+				hover:-translate-y-[1px] active:bg-zinc-200 group cursor-pointer min-w-max focus:outline-[1px]
+				max-[720px]:p-[4px] max-[720px]:rounded-lg">
+					<div class="flex items-center space-x-[8px] font-sans 
+					 max-[375px]:text-xs
+					 max-[1024px]:text-sm">
+						<span class="leading-[1] p-[8px] max-[720px]:font-[600] 
+						 max-[375px]:p-[4px]
+						 max-[1024px]:p-[6px]">
+							Hubungi Kami
+						</span>
+						<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-zinc-900 text-stone-100 group-active:text-zinc-200 transition-colors overflow-hidden
+						 max-[375px]:w-6 max-[375px]:h-6  max-[375px]:rounded-md
+						 max-[1024px]:w-7 max-[1024px]:h-7  max-[1024px]:rounded-md">
+							<div class="group-hover:translate-x-[1.5em] group-active:translate-x-[1.5em] transition-transform flex justify-center items-center"> <iconify-icon icon="material-symbols:arrow-right-alt" class="max-[375px]:text-base max-[1024px]:text-lg text-xl" /></div>
+							<div class="absolute -translate-x-[1.5em] transition-transform flex justify-center items-center group-hover:translate-x-0 group-active:translate-x-0"> <iconify-icon icon="material-symbols:arrow-right-alt" class="max-[375px]:text-base max-[1024px]:text-lg text-xl" /></div>
 						</div>
 					</div>
 				</button>
 			</div>
 		</section>
-
+		
 		<!-- Sercices Section -->
-		 <section class="my-[4rem]">
-			<div class="grid w-full grid-cols-2 select-none">
-				<div class="bg-red-300 aspect-[2/1] flex justify-center items-center">test</div>
-				<div class="bg-blue-300 aspect-[2/1] flex justify-center items-center">test</div>
-				<div class="bg-green-300 aspect-[2/1] flex justify-center items-center">test</div>
-				<div class="bg-yellow-300 aspect-[2/1] flex justify-center items-center">test</div>
-				<div class="bg-purple-300 aspect-[4/1] col-span-2 flex justify-center items-center">test</div>
+		 <section class="my-[6rem] max-[720px]:my-[4rem]" id="landing">
+			<div class="grid w-full grid-cols-2 select-none
+			max-[720px]:flex max-[720px]:flex-col">
+				<!-- Fun Motivation -->
+				<div class="bg-zinc-900 text-stone-100 text-shadow-2xs text-shadow-black/50 py-[4vw] max-[480px]:py-[10vw] flex flex-col justify-center items-center group relative overflow-hidden">
+					<img src={building.src} class="object-cover w-full absolute z-0 scale-125 group-hover:scale-100 max-[480px]:scale-100 transition-all group-hover:opacity-30 max-[480px]:opacity-30 opacity-50">
+					<h2 class="font-bold mb-4 translate-y-[1.5em] max-[1024px]:translate-y-[3em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Fun Motivation</h2>
+					<p class="w-[480px] max-[1024px]:max-w-[320px] max-[1024px]:w-full max-[350px]:px-4 text-justify indent-4 translate-y-[20em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Program yang dirancang untuk membangkitkan semangat anak melalui pendekatan yang menyenangkan dan interaktif. Membantu meningkatkan rasa percaya diri, kreativitas, serta keterampilan sosial mereka. Dengan metode yang positif dan inspiratif, anak-anak diajak untuk membangun pola pikir sukses yang akan bermanfaat bagi masa depan mereka. Cocok untuk berbagai usia dan latar belakang.</p>
+				</div>
+
+				<!-- MidBrain Activation -->
+				<div class="bg-zinc-900 text-stone-100 text-shadow-2xs text-shadow-black/50 py-[4vw] max-[480px]:py-[10vw] flex flex-col justify-center items-center group relative overflow-hidden">
+					<img src={building.src} class="object-cover w-full absolute z-0 scale-125 group-hover:scale-100 max-[480px]:scale-100 transition-all group-hover:opacity-30 max-[480px]:opacity-30 opacity-50">
+					<h2 class="font-bold mb-4 translate-y-[1.5em] max-[1024px]:translate-y-[3em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">MidBrain Activation</h2>
+					<p class="w-[480px] max-[1024px]:max-w-[320px] max-[1024px]:w-full max-[350px]:px-4 text-justify indent-4 translate-y-[20em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Program stimulasi otak tengah yang bertujuan untuk mengoptimalkan fungsi kognitif anak melalui teknik latihan khusus. Membantu meningkatkan konsentrasi, daya ingat, kreativitas, serta kepercayaan diri mereka. Metode ini dirancang untuk mengembangkan keseimbangan antara otak kiri dan kanan sehingga anak dapat belajar dengan lebih efektif.</p>
+				</div>
+
+				<!-- Capacity Building -->
+				<div class="bg-zinc-900 text-stone-100 text-shadow-2xs text-shadow-black/50 py-[4vw] max-[480px]:py-[10vw] flex flex-col justify-center items-center group relative overflow-hidden">
+					<img src={building.src} class="object-cover w-full absolute z-0 scale-125 group-hover:scale-100 max-[480px]:scale-100 transition-all group-hover:opacity-30 max-[480px]:opacity-30 opacity-50">
+					<h2 class="font-bold mb-4 translate-y-[1.5em] max-[1024px]:translate-y-[3em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Capacity Building</h2>
+					<p class="w-[480px] max-[1024px]:max-w-[320px] max-[1024px]:w-full max-[350px]:px-4 text-justify indent-4 translate-y-[20em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Pelatihan yang berfokus pada pengembangan keterampilan individu dan profesional untuk meningkatkan produktivitas serta daya saing di lingkungan kerja. Program ini mencakup penguatan soft skills, kepemimpinan, manajemen waktu, dan kerja sama tim. Cocok untuk karyawan, profesional, maupun individu yang ingin mengembangkan potensinya.</p>
+				</div>
+
+				<!-- Happy Parenting -->
+				<div class="bg-zinc-900 text-stone-100 text-shadow-2xs text-shadow-black/50 py-[4vw] max-[480px]:py-[10vw] flex flex-col justify-center items-center group relative overflow-hidden">
+					<img src={building.src} class="object-cover w-full absolute z-0 scale-125 group-hover:scale-100 max-[480px]:scale-100 transition-all group-hover:opacity-30 max-[480px]:opacity-30 opacity-50">
+					<h2 class="font-bold mb-4 translate-y-[1.5em] max-[1024px]:translate-y-[3em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Happy Parenting</h2>
+					<p class="w-[480px] max-[1024px]:max-w-[320px] max-[1024px]:w-full max-[350px]:px-4 text-justify indent-4 translate-y-[20em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Program yang dirancang untuk mendukung orang tua dalam memahami dan mengasuh anak dengan lebih baik. Memberikan wawasan tentang pola asuh yang positif, komunikasi efektif, serta cara membangun hubungan yang harmonis dalam keluarga. Dilengkapi dengan metode praktis yang membantu orang tua menghadapi tantangan dalam perkembangan anak.</p>
+				</div>
+
+
+				
+				<div class="col-span-2 max-[720px]:col-span-1">
+					<div class="bg-zinc-900 text-stone-100 text-shadow-2xs text-shadow-black/50 py-[4vw] max-[480px]:py-[10vw] flex flex-col justify-center items-center group relative overflow-hidden">
+						<img src={building.src} class="object-cover w-full absolute z-0 scale-125 group-hover:scale-100 max-[480px]:scale-100 transition-all group-hover:opacity-30 max-[480px]:opacity-30 opacity-50">
+						<h2 class="font-bold mb-4 translate-y-[1.5em] max-[1024px]:translate-y-[3em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Happy Parenting</h2>
+						<p class="w-[480px] max-[1024px]:max-w-[320px] max-[1024px]:w-full max-[350px]:px-4 text-justify indent-4 translate-y-[20em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Program yang dirancang untuk mendukung orang tua dalam memahami dan mengasuh anak dengan lebih baik. Memberikan wawasan tentang pola asuh yang positif, komunikasi efektif, serta cara membangun hubungan yang harmonis dalam keluarga. Dilengkapi dengan metode praktis yang membantu orang tua menghadapi tantangan dalam perkembangan anak.</p>
+					</div>
+				</div>
 			</div>
 		 </section>
+
+		<!-- Trusted -->
+		 <Trusted />
 
 		<!-- Testimoni -->
 		 <Testimoni />
 
-		 <!-- Trusted -->
-		  <Trusted />
-
 		<!-- Content -->
-		<section>
-			<div class="py-[12rem]">
-				<h2 class="text-[32px] leading-[1.2] font-[600] mb-12 font-sans tracking-tight text-center">The BrainEvo way 🌱</h2>
-				<div class="w-full overflow-scroll no-scrollbar cursor-grab">
-					<div class="flex space-x-8 select-none justify-center-safe w-max">
-						<div class="w-[300px]"></div>
-						<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Menyenangkan</div>
-						<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Percaya diri</div>
-						<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Program lengkap</div>
-						<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Ahli berpengalaman</div>
-						<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Fleksibel & efektif</div>
-						<div class="w-[300px]"></div>
-					</div>
-				</div>
-			</div>
-		</section>
+		 <Content />
 
 		<!-- CTA Button -->
 		 <CTA />
 
 		<!-- Footer wih Map -->
-		<footer>
-			<div class="flex flex-col items-center justify-center mt-[8rem]">
+		<footer id="landing">
+
+			<div class="flex flex-col items-center-safe justify-center mt-[8rem] max-[720px]:mt-[6rem] max-[450px]:mt-[5rem] max-[375px]:mt-[4rem]">
+
+				<!-- Contact -->
 				<div class="flex flex-col">
-					<h2 class="text-[48px] leading-[1.2] font-[700] mb-8 font-sans tracking-tight">Kantor Kami</h2>
-					<div class="flex">
-						<div class="w-[300px] h-[400px] bg-blue-300 rounded-2xl absolute">gambar gedung</div>
-						<div class="w-[300px]" />
-						<div class="m-8 space-y-4">
+					<h2 class="text-[48px] leading-[1.2] font-[700] min-[720px]:mb-8 font-sans tracking-tight max-[720px]:ml-8 max-[450px]:translate-0 max-[720px]:-translate-x-16">Kantor Kami</h2>
+					<div class="flex max-[720px]:flex-col">
+						<!-- Image -->
+						<div class="w-[300px] aspect-[2/1] max-[720px]:order-2">
+							<div class="w-[300px] aspect-[3/4] bg-blue-300 rounded-2xl absolute max-[720px]:hidden overflow-hidden">
+								<img src={building.src} alt="" class="h-full object-cover">
+							</div>
+							<div class="w-[300px] aspect-[3/2] overflow-hidden bg-blue-300 rounded-xl max-[355px]:w-[90%] max-[355px]:ml-[5%] right-8 max-[450px]:right-4 max-[355px]:right-auto absolute min-[720px]:hidden">
+								<img src={building.src} alt="" class="w-full object-cover">
+							</div>
+						</div>
+
+						<!-- Content -->
+						<div class="m-8 space-y-4 max-[720px]:order-1 max-[720px]:mb-12 max-[450px]:translate-0 max-[720px]:-translate-x-16">
 							<div>
-								<h3 class="text-[24px] leading-[1] font-[600] mb-2 font-sans">Alamat</h3>
-								<div class="text-[16px] leading-[1.4] font-[500] text-zinc-900/70 font-read tracking-wider">Jl. Haji Baping No. 56,<br> Ciracas, Jakarta Timur</div>
+								<h3 class="leading-[1] font-[600] mb-2 font-sans">Alamat</h3>
+								<p class="leading-[1.4] font-[500] text-zinc-900/70 font-read tracking-wider">Jl. Haji Baping No. 56,<br> Ciracas, Jakarta Timur</p>
 							</div>
 							<div>
-								<h3 class="text-[24px] leading-[1] font-[600] mb-2 font-sans">Jam Oprasional</h3>
-								<div class="text-[16px] leading-[1.4] font-[500] text-zinc-900/70 font-read tracking-wider">09:00 WIB - 18:00 WIB</div>
+								<h3 class="leading-[1] font-[600] mb-2 font-sans">Jam Oprasional</h3>
+								<p class="leading-[1.4] font-[500] text-zinc-900/70 font-read tracking-wider">09:00 WIB - 18:00 WIB</p>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="bg-black/50 w-full h-[300px]">map</div>
+
+				<!-- Map -->
+				<div class="w-full">
+            		<iframe class="w-full h-[300px] border-0 select-none" 
+            		src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.4337202008123!2d107.0503255!3d-6.466611400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69bd7bc3f7d969%3A0x85afa177fcd86ab9!2sagerr.studio!5e0!3m2!1sen!2sid!4v1739604774673!5m2!1sen!2sid" allowfullscreen="true" loading="eager" referrerpolicy="strict-origin-when-cross-origin"/>
+				</div>
 			</div>
 
-			<div class="flex items-center justify-between">
-				<div class="text-[16px] space-x-4 leading-[1.4] font-[500] text-zinc-900 tracking-wider flex items-center m-6 ml-12">
-					<div>©2025 BrainEvo Academy</div>
-					<span class="h-4 border-l border-black" />
-					<div class="w-6 h-6 bg-red-300 rounded-full" />
-					<div class="w-6 h-6 bg-red-300 rounded-full" />
-					<div class="w-6 h-6 bg-red-300 rounded-full" />
+			<!-- Copyright -->
+			<div class="flex items-center justify-between max-[720px]:flex-col">
+				<div class="text-[16px] space-x-4 leading-[1.4] font-[400] text-zinc-900 tracking-wider flex items-center m-6 min-[720px]:ml-12 max-[720px]:mb-0">
+					<p>©2025 BrainEvo Academy</p>
+					<span class="h-4 border-l border-black max-[1024px]:hidden" />
+					<div class="w-6 h-6 bg-red-300 rounded-full max-[1024px]:hidden" />
+					<div class="w-6 h-6 bg-red-300 rounded-full max-[1024px]:hidden" />
+					<div class="w-6 h-6 bg-red-300 rounded-full max-[1024px]:hidden" />
 				</div>
-				<div class="space-x-4 text-[16px] leading-[1.4] font-[500] text-zinc-900 tracking-wider flex items-center m-6 mr-12">
-					<a href="/" class="hover:text-red-300">Privacy</a>
+				<div class="space-x-4 text-[16px] leading-[1.4] font-[400] text-zinc-900 tracking-wider flex items-center m-6 min-[720px]:mr-12">
+					<a href="/" class="hover:text-red-300"><p>Privacy</p></a>
 					<span class="h-4 border-l border-black" />
-					<a href="/" class="hover:text-red-300">Terms</a>
+					<a href="/" class="hover:text-red-300"><p>Terms</p></a>
 					<span class="h-4 border-l border-black" />
-					<a href="/" class="hover:text-red-300">Cookies</a>
+					<a href="/" class="hover:text-red-300"><p>Cookies</p></a>
 				</div>
 			</div>
 		</footer>

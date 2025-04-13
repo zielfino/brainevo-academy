@@ -2,8 +2,9 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="fixed translate-y-4 select-none translate-x-[calc(50vw-50%)] w-fit z-[50]">
-    <div class="absolute hidden w-full h-16 translate-y-12 bg-gradient-to-tr from-orange-50 to-orange-100 rounded-b-xl backdrop-blur-sm" data-index="navNote">
+<nav class="fixed translate-y-4 select-none translate-x-[calc(50vw-50%)] w-fit z-[50]
+max-[720px]:translate-0 max-[720px]:w-full">
+    <div class="absolute hidden w-full h-16 translate-y-12 bg-gradient-to-tr from-orange-50 to-orange-100 rounded-b-xl backdrop-blur-sm max-[720px]:!hidden" data-index="navNote">
         <div class="h-4"></div>
         <div class="flex items-center justify-center w-full h-10">
             <button class="absolute flex items-center justify-center cursor-pointer right-4" onclick=`
@@ -12,33 +13,62 @@ const currentPath = Astro.url.pathname;
           `>
                 <iconify-icon icon="gridicons:cross" class="text-xl" />
             </button>
-            <div><span class="font-bold cursor-pointer hover:underline">Lorem ipsum dolor</span> sit amet consectetur adipisicing elit.</div>
+            <!-- <div><span class="font-bold cursor-pointer hover:underline">Lorem ipsum dolor</span> sit amet consectetur adipisicing elit.</div> -->
+            <div>Yuk, ikut <span class="font-bold cursor-pointer hover:underline">program baru</span> untuk orang tua dan anak sekarang!</div>
         </div>
     </div>
 
     <!-- navBox -->
-    <div class="p-3 bg-zinc-50/30 backdrop-blur-md rounded-xl w-[720px]">
-        <div class="flex items-center justify-between w-full">
-            <div class="ml-[12px]">
-                <a href="/" class={`${ currentPath === "/" ? "pointer-events-none" : "" }`}>B Academy</a>
-            </div>
-            <div class="flex items-center justify-center space-x-6">
-                <a href="/" class={`px-2.5 py-1 rounded-md ${
-                    currentPath === "/" ? "bg-zinc-300/75 pointer-events-none" : "hover:bg-zinc-300/75"
-                  }`}
-                >Home</a>
-                <a href="/about" class={`px-2.5 py-1 rounded-md ${
-                    currentPath === "/about" ? "bg-zinc-300/75 pointer-events-none" : "hover:bg-zinc-300/75"
-                  }`}
-                >
-                About</a>
-                <a href="/article" class={`px-2.5 py-1 rounded-md ${
-                    currentPath === "/article" ? "bg-zinc-300/75 pointer-events-none" : "hover:bg-zinc-300/75"
-                  }`}
-                >
-                Article</a>
-                <a href="/contact">
-                    <div class="px-3 rounded-md py-1.5 bg-zinc-900 hover:bg-zinc-900/75 text-stone-50">Contact</div>
+    <div class="p-3 bg-stone-50/50 backdrop-blur-md w-[720px] border-[1px] drop-shadow-xl drop-shadow-zinc-900/20 border-stone-400/40
+    min-[720px]:rounded-xl
+    max-[720px]:min-w-[320px] max-[720px]:w-full max-[720px]:bg-stone-50/20">
+
+        <div class="flex items-center justify-between w-full relative
+        max-[450px]:justify-start
+        max-[720px]:flex max-[720px]:justify-center">
+
+            <!-- Burger -->
+            <button class="hidden absolute top-auto right-4 justify-center items-center
+            max-[720px]:flex">
+                <iconify-icon icon="iconamoon:menu-burger-horizontal-duotone" class="text-2xl" />
+            </button>
+
+            <!-- Logo -->
+            <a href="/" class={`${ currentPath === "/" ? "pointer-events-none" : "" }`}>
+                <img src="https://placehold.co/400x100?text=B+Academy&font=roboto" alt="Header Logo" class="h-[3rem] min-[720px]:h-[2rem] aspect-[4/1]" />
+            </a>
+
+            <!-- Links -->
+            <div class="flex items-center justify-center space-x-4 font-[400] tracking-wide
+            max-[720px]:hidden">
+                <a href="/" class={`px-2.5 py-1 rounded-md text-shadow-2xs text-shadow-white/75 ${
+                    currentPath === "/" ? 
+                    "shadow-[inset_2px_2px_4px_rgba(0,0,0,0.2),inset_-2px_-2px_3px_rgba(255,255,255,0.5)] pointer-events-none translate-y-[0.5px]" : 
+                    "hover:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.2),inset_-2px_-2px_3px_rgba(255,255,255,0.5)] hover:translate-y-[0.5px]"
+                  }`} >
+                    Home
+                </a>
+                <a href="/about" class={`px-2.5 py-1 rounded-md text-shadow-2xs text-shadow-white/75 ${
+                    currentPath === "/about" ? 
+                    "shadow-[inset_2px_2px_4px_rgba(0,0,0,0.2),inset_-2px_-2px_3px_rgba(255,255,255,0.5)] pointer-events-none translate-y-[0.5px]" : 
+                    "hover:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.2),inset_-2px_-2px_3px_rgba(255,255,255,0.5)] hover:translate-y-[0.5px]"
+                  }`} >
+                    About
+                </a>
+                <a href="/article" class={`px-2.5 py-1 rounded-md text-shadow-2xs text-shadow-white/75 ${
+                    currentPath === "/article" ? 
+                    "shadow-[inset_2px_2px_4px_rgba(0,0,0,0.2),inset_-2px_-2px_3px_rgba(255,255,255,0.5)] pointer-events-none translate-y-[0.5px]" : 
+                    "hover:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.2),inset_-2px_-2px_3px_rgba(255,255,255,0.5)] hover:translate-y-[0.5px]"
+                  }`} >
+                    Article
+                </a>
+                <a href="/contact"
+                class={`px-3 py-1.5 rounded-md text-shadow-2xs text-shadow-white/75 ${
+                    currentPath === "/contact" ? 
+                    "shadow-[inset_2px_2px_4px_rgba(0,0,0,0.2),inset_-2px_-2px_3px_rgba(255,255,255,0.5)] pointer-events-none translate-y-[0.5px]" : 
+                    "hover:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.2),inset_-2px_-2px_3px_rgba(255,255,255,0.5)] hover:translate-y-[0.5px] shadow-[2px_2px_4px_rgba(0,0,0,0.2),-2px_-2px_3px_rgba(255,255,255,0.5)] -translate-y-[0.5px]"
+                }`}>
+                    Contact
                 </a>
             </div>
         </div>

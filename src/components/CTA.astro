@@ -1,13 +1,39 @@
-<section>
-    <div class="select-none bg-zinc-800/80 text-stone-200">
-        <div class="flex flex-col justify-center items-center py-[6rem]">
-            <h2 class="text-[48px] leading-[1.2] font-[600] mb-4 font-sans tracking-tight">Tertarik bergabung bersama BrainEvo?</h2>
-            <div class="text-[16px] leading-[1.4] font-[500] text-stone-300/75 font-read tracking-wider">Hubuni kami atau daftarkan diri anda hari ini.</div>
-            <button class="p-[8px] rounded-xl bg-stone-200 text-zinc-800 hover:bg-stone-200/75 cursor-pointer mt-8">
-                <div class="flex items-center space-x-[8px] font-sans">
-                    <span class="leading-[1] p-[8px]">Hubungi Kami</span>
-                    <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-stone-900 text-stone-100">
-                        ->
+---
+import banner from '../assets/images/landingbackground.jpg';
+---
+<section id="landing">
+    <div class="select-none bg-[url(../assets/images/landingbackground.jpg)] bg-cover bg-left text-stone-200">
+        <div class="flex flex-col justify-center items-center text-center bg-zinc-900/40
+         max-[450px]:py-[3rem] max-[720px]:py-[4rem] max-[1024px]:py-[5rem] py-[6rem]">
+            <h2 class="leading-[1.2] font-[600] font-sans tracking-tight 
+            max-[580px]:w-[330px]
+             max-[720px]:w-[330px]
+             max-[720px]:mb-2 mb-4">
+                Tertarik bergabung bersama BrainEvo?
+            </h2>
+            <p class="leading-[1.4] font-[500] text-stone-300/75 font-read tracking-wider
+             max-[375px]:w-[230px]
+             max-[580px]:w-[270px] 
+             max-[1024px]:mb-4 mb-8">
+                Hubuni kami atau daftarkan diri anda hari ini.
+            </p>
+            <button class="p-[8px] text-zinc-900 rounded-xl border-2 border-zinc-900 transition-all bg-stone-100 
+            hover:drop-shadow-md hover:drop-shadow-zinc-500/30 drop-shadow-xs drop-shadow-zinc-500/30 
+            hover:-translate-y-[1px] active:bg-zinc-200 group cursor-pointer min-w-max focus:outline-[1px]
+            max-[720px]:p-[4px] max-[720px]:rounded-lg">
+                <div class="flex items-center space-x-[8px] font-sans 
+                 max-[375px]:text-xs
+                 max-[1024px]:text-sm">
+                    <span class="leading-[1] p-[8px] max-[720px]:font-[600] 
+                     max-[375px]:p-[4px]
+                     max-[1024px]:p-[6px]">
+                        Hubungi Kami
+                    </span>
+                    <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-zinc-900 text-stone-100 group-active:text-zinc-200 transition-colors overflow-hidden
+                     max-[375px]:w-6 max-[375px]:h-6  max-[375px]:rounded-md
+                     max-[1024px]:w-7 max-[1024px]:h-7  max-[1024px]:rounded-md">
+                        <div class="group-hover:translate-x-[1.5em] group-active:translate-x-[1.5em] transition-transform flex justify-center items-center"> <iconify-icon icon="material-symbols:arrow-right-alt" class="max-[375px]:text-base max-[1024px]:text-lg text-xl" /></div>
+                        <div class="absolute -translate-x-[1.5em] transition-transform flex justify-center items-center group-hover:translate-x-0 group-active:translate-x-0"> <iconify-icon icon="material-symbols:arrow-right-alt" class="max-[375px]:text-base max-[1024px]:text-lg text-xl" /></div>
                     </div>
                 </div>
             </button>

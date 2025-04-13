@@ -1,11 +1,115 @@
-<section>
-    <div class="flex flex-col justify-center items-center text-center my-[8rem]">
-        <div class="">
-            <iconify-icon icon="bxs:quote-left" class="text-red-500 text-[1.5rem]" />
-            <!-- <iconify-icon icon="ph:student" width="24" height="24"></iconify-icon>	 -->
-        </div>
-        <div class="w-[480px] text-[16px] leading-[1.4] font-read tracking-wide my-[2rem]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro error earum, nihil reiciendis dolor, quas quae corrupti magnam excepturi suscipit quaerat magni temporibus hic perferendis?</div>
-        <div class="text-[18px] text-red-500" >Suyoto S.E.</div>
-        <div class="text-[16px] text-zinc-900/70" >Founder BrainEvo</div>
-    </div>
+---
+import { contentfulClient } from "../lib/contentful";
+import type { EntryFieldTypes, Asset } from "contentful";
+
+// Interface untuk data dari Contentful
+interface BlogPost {
+    contentTypeId: "brainEvoTestomoni";
+    fields: {
+        name: EntryFieldTypes.Text;
+        content: EntryFieldTypes.Text;
+        position: EntryFieldTypes.Text;
+    };
+}
+
+// Fetch data dari Contentful
+const entries = await contentfulClient.getEntries<BlogPost>({
+    content_type: "brainEvoTestomoni",
+});
+
+// Ambil array items
+const tesimonials = entries.items;
+---
+
+<section id="landing" class="flex justify-center my-[8rem]">
+    <button data-index="box" class="flex cursor-pointer flex-col justify-center items-center-safe text-center max-[720px]:my-[6rem]">
+        
+        {tesimonials.map((item, index) => (
+            <div data-index={index} class={index === 0 ? "" : "hidden"}>
+                <div class="">
+                    <iconify-icon icon="bxs:quote-left" class="text-red-500 text-[1.5rem]" />
+                    <!-- <iconify-icon icon="ph:student" width="24" height="24"></iconify-icon>	 -->
+                </div>
+                <p data-index={'content' + index} class="w-[480px] h-[120px] line-clamp-6 text-[16px] leading-[1.4] font-read tracking-wide my-[2rem]
+                 max-[375px]:w-full max-[375px]:px-8
+                 max-[400px]:px-2
+                 max-[720px]:w-[360px]
+                 max-[1024px]:w-[400px]">
+                    {item.fields.content}
+                </p>
+                <h6 data-index={'name' + index} class="text-red-500">
+                    {item.fields.name}
+                </h6>
+                <p data-index={'position' + index} class="text-[16px] text-zinc-900/70">
+                    {item.fields.position}
+                </p>
+            </div>
+        ))}
+
+    </button>
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const wrapper = document.querySelector('[data-index="box"]');
+        const items = wrapper.querySelectorAll("div[data-index]:not([data-index='box'])");
+    
+        let current = 0;
+  
+        wrapper.addEventListener("click", () => {
+            items[current].classList.add("hidden");
+
+            current = (current + 1) % items.length;
+
+            items[current].classList.remove("hidden");
+        });
+    });
+</script>
+  
+<!-- <script>
+    const quotes = [
+      {
+        quote: "Capacity Building di BrainEvo membuka wawasan saya soal potensi karyawan muda. Banyak yang ternyata memiliki bakat besar namun belum terarah. Program ini layak diadopsi sebagai bagian dari pengembangan SDM sejak dini.",
+        name: "Hendro Wijaya",
+        title: "HRD Manager",
+      },
+      {
+        quote: "Saya merekomendasikan Fingerprint Test dari BrainEvo untuk para orang tua yang ingin mengenal anak lebih dalam. Akurat, insightful, dan sangat membantu dalam menentukan pendekatan belajar yang paling sesuai.",
+        name: "Monica Chandra",
+        title: "Psikolog Anak & Remaja",
+      },
+      {
+        quote: "Happy Parenting dari BrainEvo bukan cuma ajarkan pola asuh, tapi juga membangun hubungan hati ke hati dengan anak. Saya jadi lebih tenang dan paham bagaimana menumbuhkan anak dengan cinta dan disiplin positif.",
+        name: "Siti Nurhaliza",
+        title: "bu Rumah Tangga",
+      },
+      {
+        quote: "Sebagai orang kreatif, saya percaya setiap anak punya keunikan tersendiri. Program Midbrain Activation dari BrainEvo membantu anak saya lebih fokus dan berani mengeksplorasi ide. Ini investasi terbaik untuk masa depan.",
+        name: "David Kusuma",
+        title: "Creative Director",
+      },
+      {
+        quote: "Program Fun Motivation dari BrainEvo benar-benar mengubah cara saya melihat potensi anak. Anak-anak lebih percaya diri, ekspresif, dan semangat belajar setiap harinya. Sangat terasa dampaknya di kelas!",
+        name: "Rika Andayani",
+        title: "Guru TK & Konselor Anak",
+      },
+    ];
+  
+    let current = 0;
+  
+    document.addEventListener("DOMContentLoaded", () => {
+      const box = document.querySelector('[data-index="box"]');
+      const quoteEl = box.querySelector('[data-index="quote"]');
+      const nameEl = box.querySelector('[data-index="name"]');
+      const titleEl = box.querySelector('[data-index="title"]');
+  
+      box.addEventListener("click", () => {
+        current = (current + 1) % quotes.length;
+        const next = quotes[current];
+  
+        quoteEl.textContent = next.quote;
+        nameEl.textContent = next.name;
+        titleEl.textContent = next.title;
+      });
+    });
+  </script> -->

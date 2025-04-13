@@ -1,58 +1,75 @@
 ---
 import Footer from '../components/Footer.astro';
 import Layout from '../layouts/Layout.astro';
+import building from '../assets/images/building.jpg';
 ---
 <Layout>
     <section class="">
         <div class="flex flex-col items-center justify-center pt-[8rem]">
+            <!-- Contact -->
             <div class="flex flex-col">
-                <h1 class="mb-8 font-sans tracking-tight text-[48px] leading-[1.2] font-[700]">Kontak Kami</h1>
-                <div class="flex">
-                    <div class="absolute bg-blue-300 w-[300px] h-[400px] rounded-2xl">gambar gedung</div>
-                    <div class="w-[300px]" />
-                    <div class="m-8 space-y-4">
+                <h2 class="text-[48px] leading-[1.2] font-[700] min-[720px]:mb-8 font-sans tracking-tight max-[720px]:ml-8 max-[450px]:translate-0 max-[720px]:-translate-x-16">Kantor Kami</h2>
+                <div class="flex max-[720px]:flex-col">
+                    <!-- Image -->
+                    <div class="w-[300px] aspect-[2/1] max-[720px]:order-2">
+                        <div class="w-[300px] aspect-[3/4] bg-blue-300 rounded-2xl absolute max-[720px]:hidden overflow-hidden">
+                            <img src={building.src} alt="" class="h-full object-cover">
+                        </div>
+                        <div class="w-[300px] aspect-[3/2] overflow-hidden bg-blue-300 rounded-xl max-[355px]:w-[90%] max-[355px]:ml-[5%] right-8 max-[450px]:right-4 max-[355px]:right-auto absolute min-[720px]:hidden">
+                            <img src={building.src} alt="" class="w-full object-cover">
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="m-8 space-y-4 max-[720px]:order-1 max-[720px]:mb-12 max-[450px]:translate-0 max-[720px]:-translate-x-16">
                         <div>
-                            <h3 class="mb-2 font-sans text-[24px] leading-[1] font-[600]">Alamat</h3>
-                            <div class="tracking-wider text-[16px] leading-[1.4] font-[500] text-zinc-900/70 font-read">Jl. Haji Baping No. 56,<br> Ciracas, Jakarta Timur</div>
+                            <h3 class="leading-[1] font-[600] mb-2 font-sans">Alamat</h3>
+                            <p class="leading-[1.4] font-[500] text-zinc-900/70 font-read tracking-wider">Jl. Haji Baping No. 56,<br> Ciracas, Jakarta Timur</p>
                         </div>
                         <div>
-                            <h3 class="mb-2 font-sans text-[24px] leading-[1] font-[600]">Kontak</h3>
-                            <div class="tracking-wider text-[16px] leading-[1.4] font-[500] text-zinc-900/70 font-read">+62 812 1234 6758</div>
-                            <div class="tracking-wider text-[16px] leading-[1.4] font-[500] text-zinc-900/70 font-read">info@brainevoacademy.com</div>
+                            <h3 class="leading-[1] font-[600] mb-2 font-sans">Kontak</h3>
+                            <p class="leading-[1.4] font-[500] text-zinc-900/70 font-read tracking-wider">info@brainevoacademy.com</p>
+                            <p class="leading-[1.4] font-[500] text-zinc-900/70 font-read tracking-wider">+62 812 1234 6758</p>
                         </div>
                         <div>
-                            <h3 class="mb-2 font-sans text-[24px] leading-[1] font-[600]">Jam Oprasional</h3>
-                            <div class="tracking-wider text-[16px] leading-[1.4] font-[500] text-zinc-900/70 font-read">09:00 WIB - 18:00 WIB</div>
+                            <h3 class="leading-[1] font-[600] mb-2 font-sans">Jam Oprasional</h3>
+                            <p class="leading-[1.4] font-[500] text-zinc-900/70 font-read tracking-wider">09:00 WIB - 18:00 WIB</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="w-full bg-black/50 h-[300px]">map</div>
+
+            <!-- Map -->
+            <div class="w-full">
+                <iframe class="w-full h-[300px] border-0 select-none" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.4337202008123!2d107.0503255!3d-6.466611400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69bd7bc3f7d969%3A0x85afa177fcd86ab9!2sagerr.studio!5e0!3m2!1sen!2sid!4v1739604774673!5m2!1sen!2sid" allowfullscreen="true" loading="eager" referrerpolicy="strict-origin-when-cross-origin"/>
+            </div>
         </div>
         
         <div class="w-full flex justify-center">
             <div class="w-[720px] my-32">
-                <div class="w-full">
+                <div class="w-full px-4">
                     <h2 class="mb-8 tracking-tight text-[32px] leading-[1.2] font-[700]">Kontak Kami</h2>
                     
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-2 max-[720px]:grid-cols-1 gap-4">
                         <div>
                             <label for="email">Email anda <i class="text-zinc-900/50">(untuk kita membalas pesan)</i></label>
                             <input name="email"
                                 type="text" 
-                                placeholder="name@agerrstudio.com"
+                                placeholder="nama@emailanda.com"
                                 class="flex items-center bg-stone-200 text-zinc-900 p-3 rounded-lg mt-[0.75rem] mb-[1rem]
-                                w-full ring-[1.25px] ring-stone-300 focus-within:ring-[#faba66] outline-none"
+                                w-full ring-[1.25px] ring-stone-300 focus-within:ring-red-400 outline-none"
                             />
                         </div>
                         <div>
                             <label for="topic">Topik layanan</label>
                             <select name="topic" class="flex items-center bg-stone-200 text-zinc-900 p-3 rounded-lg mt-[0.75rem] mb-[1rem]
-                            w-full ring-[1.25px] ring-stone-300 outline-none focus-within:ring-[#faba66] cursor-pointer">
-                                <option value="" disabled selected>Select a topic</option>
-                                <option value="design">Design</option>
-                                <option value="development">Development</option>
-                                <option value="marketing">Marketing</option>
+                            w-full ring-[1.25px] ring-stone-300 outline-none focus-within:ring-red-400 cursor-pointer appearance-none">
+                                <option value="" disabled selected>Pilih Topik</option>
+                                <option value="funmotivation">Fun Motivation</option>
+                                <option value="midbrainactivation">Midbrain Activation</option>
+                                <option value="capacitybuilding">Capacity Building</option>
+                                <option value="happyparenting">Happy Parenting</option>
                             </select>
                         </div>
                     </div>
@@ -60,9 +77,9 @@ import Layout from '../layouts/Layout.astro';
                         <label for="subject">Subjek</label>
                             <input name="subject"
                                 type="text" 
-                                placeholder="Let us know how we can help you"
+                                placeholder="Beri tahu kami bagaimana kami dapat membantu."
                                 class="flex items-center bg-stone-200 text-zinc-900 p-3 rounded-lg mt-[0.75rem] mb-[1rem]
-                                w-full ring-[1.25px] ring-stone-300 focus-within:ring-[#faba66] outline-none"
+                                w-full ring-[1.25px] ring-stone-300 focus-within:ring-red-400 outline-none"
                             />
                     </div>
                     <div>
@@ -70,17 +87,17 @@ import Layout from '../layouts/Layout.astro';
                         <textarea name="message"
                             placeholder="Tuliskan disini.."
                             class="flex bg-stone-200 p-3 rounded-lg mt-[0.75rem] mb-[1rem]
-                            ring-[1.25px] ring-stone-300 focus-within:ring-[#faba66] outline-none w-full resize-none h-24 text-zinc-900"></textarea>
+                            ring-[1.25px] ring-stone-300 focus-within:ring-red-400 outline-none w-full resize-none h-24 text-zinc-900"></textarea>
                     </div>
                     <div class="flex items-start gap-2 my-4 cursor-pointer">
-                        <input id="terms" type="checkbox" class="mt-1 accent-[#faba66] text-stone-100 bg-stone-100 cursor-pointer w-4 h-4">
+                        <input id="terms" type="checkbox" class="mt-1 accent-red-400 text-stone-100 bg-stone-100 cursor-pointer w-4 h-4">
                         <label for="terms" class="text-sm text-zinc-900 cursor-pointer">
-                            "Dengan mengirimkan formulir ini, Anda menyatakan bahwa Anda telah membaca dan menyetujui
-                            <a href="/" class="text-[#faba66] hover:underline">Ketentuan Layanan</a> dan
-                            <a href="/" class="text-[#faba66] hover:underline">Pernyataan Privasi</a> kami.
+                            Dengan mengirimkan formulir ini, Anda menyatakan bahwa Anda telah membaca dan menyetujui
+                            <a href="/" class="text-red-400 hover:underline">Ketentuan Layanan</a> dan
+                            <a href="/" class="text-red-400 hover:underline">Pernyataan Privasi</a> kami.
                         </label>
                     </div>
-                    <button type="submit" class="bg-[#faba66] text-white py-3 px-5 font-[500] rounded-lg hover:bg-opacity-70 transition-all">
+                    <button type="submit" class="bg-red-400 text-white py-3 px-5 font-[500] rounded-lg hover:bg-opacity-70 transition-all">
                         Send Messages
                     </button>
     
