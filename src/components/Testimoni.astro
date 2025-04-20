@@ -21,7 +21,7 @@ const entries = await contentfulClient.getEntries<BlogPost>({
 const tesimonials = entries.items;
 ---
 
-<section id="landing" class="flex justify-center my-[8rem]">
+<section id="landing" class="flex justify-center my-[8rem] max-[720px]:my-[0rem]">
     <button data-index="box" class="flex cursor-pointer flex-col justify-center items-center-safe text-center max-[720px]:my-[6rem]">
         
         {tesimonials.map((item, index) => (

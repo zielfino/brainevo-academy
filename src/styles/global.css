@@ -69,11 +69,15 @@ a, img, svg, video, button {
     @apply max-[375px]:text-xl max-[1024px]:text-2xl text-[32px] select-none font-[600]
 }
 
+#landing h4 {
+    @apply max-[375px]:text-base max-[1024px]:text-lg text-xl font-[500]
+}
+
 #landing h6 {
     @apply max-[375px]:text-sm max-[1024px]:text-base text-lg select-none
 }
 
-#landing p {
+#landing p , #landing li{
     @apply max-[375px]:text-xs max-[1024px]:text-sm text-base
 }
 
@@ -81,19 +85,35 @@ a, img, svg, video, button {
 
 /* Article */
 
+article {
+    @apply font-read tracking-wide;
+}
+
 article > h2 {
-    @apply mt-10 mb-4 font-sans tracking-tight text-[32px] leading-[1.2] font-[500]
+    @apply mt-10 mb-4 font-sans tracking-tight leading-[1.2] font-[500] max-[375px]:text-xl max-[1024px]:text-2xl text-3xl
 }
 
 article > h3 {
-    @apply mt-8 mb-4 font-sans text-[24px] leading-[1.2] font-[500]
+    @apply mt-8 mb-4 font-sans tracking-tight max-[375px]:text-lg max-[1024px]:text-xl text-2xl leading-[1.2] font-[500]
+}
+
+article h6 {
+    @apply mt-6 mb-4 font-sans tracking-tight max-[375px]:text-sm max-[1024px]:text-base text-lg
 }
 
 article > p {
-    @apply font-read indent-8 mb-2 tracking-wide text-justify 
+    @apply font-read tracking-wide indent-8 mb-2 text-justify 
     max-[375px]:text-xs max-[1024px]:text-sm text-base
 }
 
 article > ul > li {
     @apply list-disc ml-6
+}
+
+article > ul, article > ol {
+    @apply mb-4 list-decimal
+}
+
+article a {
+    @apply text-sky-700 hover:underline
 }

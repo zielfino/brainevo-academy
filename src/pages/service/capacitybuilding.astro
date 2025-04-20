@@ -1,0 +1,56 @@
+---
+import Footer from "../../components/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import banner from '../../assets/images/landingbackground.jpg';
+---
+
+<Layout title="Capacity Building - BrainEvo Academy">
+
+    <div class="w-full justify-center z-0 flex absolute">
+        <img src={banner.src} oncontextmenu="return false;" class="w-full object-cover object-[center_60%] inset-0
+         max-[720px]:h-[20vh] max-[1024px]:h-[22vh] h-[24vh] min-2xl:h-[28vh]
+         mask-radial-farthest-corner mask-b-from-70% mask-radial-at-[50%_0%] mask-radial-from-30% mask-radial-to-80%" alt="Client Logo" />
+    </div>
+    
+    <section id="landing">
+        <div class="w-full flex flex-col items-center justify-center mb-32 max-[720px]:mb-4 pt-48 max-[720px]:pt-32">
+            <div class="max-w-4xl w-[calc(100%-2rem)]">
+                <h1 class="max-[375px]:text-4xl max-[1024px]:text-5xl text-6xl
+                font-[600] mb-4">
+                    Capacity Building
+                </h1>
+                <p class="indent-8 text-justify max-w-2xl pl-8 mt-8 max-[720px]:p-0">
+                    Di BrainEvo, kami tidak hanya fokus pada kecerdasan akademik, tapi juga membangun kapasitas diri anak secara menyeluruh—itulah yang kami sebut sebagai Capacity Building. Program ini dirancang untuk membantu anak mengenali dan mengembangkan potensi terbaik dalam dirinya, baik secara mental, emosional, maupun sosial. Lewat aktivitas yang menyenangkan dan penuh tantangan positif, anak belajar tentang kepemimpinan, kerjasama tim, komunikasi efektif, manajemen emosi, dan cara mengambil keputusan dengan percaya diri.
+                </p>
+                <p class="indent-8 text-justify max-w-2xl pl-8 mt-8 max-[720px]:p-0">
+                    Capacity Building di BrainEvo bukan sekadar teori, tapi pengalaman nyata yang membentuk karakter anak sejak dini. Anak-anak dilatih untuk menghadapi situasi, menyelesaikan masalah, dan berani tampil, semua dengan pendekatan yang interaktif dan inspiratif. Kami percaya bahwa dengan fondasi karakter yang kuat, anak tidak hanya pintar—tapi juga siap menghadapi masa depan dengan mental yang tangguh dan pola pikir yang positif. Karena tujuan kami bukan hanya mencetak anak yang cerdas, tapi juga anak yang mampu berdiri kuat di berbagai situasi kehidupan.
+                </p>
+            </div>
+            <div class="max-w-4xl w-full pr-8 max-[720px]:p-0">
+                <div class="bg-sky-300 rounded-xl w-[calc(100%-2rem)] max-w-[480px] aspect-[3/2] ml-auto max-[720px]:mr-auto mt-8
+                max-[480px]:m-0 max-[480px]:mt-8 max-[480px]:w-full max-[480px]:rounded-none"></div>
+            </div>
+            <div class="max-w-4xl w-[calc(100%-2rem)] mt-32 max-[720px]:mt-12">
+                <h2 class="font-[600] mb-4">
+                    Gallery
+                </h2>
+                <div class="grid grid-cols-3 max-[480px]:grid-cols-2 gap-4">
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <Footer/>
+</Layout>

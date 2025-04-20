@@ -1,0 +1,85 @@
+---
+import Blogs from '../../components/Blogs.astro';
+import Footer from '../../components/Footer.astro';
+import Pagination from '../../components/Pagination.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const currentPage = 1;
+---
+<Layout title="Article - BrainEvo Academy" currentPath = "/article";>
+    <div class="">
+        <!-- Featured -->
+        <section>
+            <div class="pt-[11rem] max-[1024px]:pt-36 max-[720px]:pt-32 max-[1024px]:mb-[4rem] mb-[6rem] flex justify-center">
+                <div class="space-x-12 max-[1024px]:space-x-6 max-[720px]:space-x-0 flex justify-center max-[1024px]:justify-between items-center-safe w-full px-8
+                max-[720px]:flex-col max-[375px]:px-4">
+                    <h1 class="mb-4 min-[720px]:hidden text-3xl font-bold tracking-wide font-serif">Highlight</h1>
+                    <!-- Image -->
+                    <div class="w-[520px] max-[1024px]:w-[calc(50vw-5rem)] aspect-[3/2] bg-blue-300 rounded-4xl
+                    max-[720px]:w-[320px] max-[375px]:w-full max-[375px]:min-w-[280px]">
+                    
+                    </div>
+
+                    <!-- Texts -->
+                    <div class="max-w-[480px] w-[50vw] max-[720px]:w-[320px]
+                     max-[375px]:w-full max-[375px]:min-w-[280px] max-[1024px]:mt-4 max-[375px]:mt-2">
+                        <h1 class="leading-[1.2] font-[500] mb-4 tracking-tighter max-[720px]:tracking-tight
+                        max-[720px]:text-[24px] max-[1024px]:text-[38px] text-[48px] min-[720px]:font-serif">
+                            Lorem ipsum dolor sit elit. Porro earum, nihil dolor, perferendis? 
+                        </h1>
+                        <p class="font-medium tracking-wide text-justify text-zinc-700/75 font-read indent-8
+                            max-[375px]:text-xs max-[1024px]:text-sm text-base">
+                            Di BrainEvo Academy, kami percaya bahwa setiap manusia memiliki keunikan yang patut ditemukan dan dikembangkan. Dengan pendekatan yang penuh kasih, kami hadir bukan hanya sebagai penyedia pelatihan.
+                        </p>
+                        <div class="text-blue-500 my-4 hover:underline cursor-pointer select-none
+                         max-[375px]:text-sm max-[1024px]:text-base text-lg">Lanjut Baca -></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Articles -->
+         <section class="w-full flex justify-center my-16">
+            <div class="grid grid-cols-3 w-[1024px] gap-4 px-4 max-[550px]:px-10 max-[400px]:px-4 max-[720px]:px-8">
+                <h1 class="mb-4 col-span-3 ml-4 text-3xl font-bold tracking-wide font-serif">Artikel Terbaru</h1>
+
+                <!-- List -->
+                <div class="col-span-2 grid grid-cols-2 gap-4 max-[720px]:col-span-3 min-w-[280px]">
+                    <!-- Cards -->
+                     <Blogs page={currentPage} />
+                     
+                    <!-- Pagination -->
+                     <Pagination currentPage={currentPage} />
+                </div>
+    
+                <!-- aside -->
+                <aside class="max-[720px]:hidden">
+                    <div class="sticky top-[20dvh]">
+                        <div class=" bg-red-300 h-[50dvh] rounded-2xl flex justify-center items-center">test</div>
+                        <div class="mt-4">
+                            <div class="mb-2 text-xl font-semibold select-none">Share artikel ini</div>
+                            <div class="grid grid-cols-5 gap-2">
+                                <a href="">                                
+                                    <iconify-icon icon="fa6-brands:google" class="text-red-50 bg-red-400 rounded-xl aspect-square flex justify-center items-center max-[980px]:text-[1.7rem] max-[780px]:text-[1.4rem] text-[2.1rem]" />
+                                </a>
+                                <a href="">                                
+                                    <iconify-icon icon="fa6-brands:facebook-f" class="text-sky-50 bg-sky-500 rounded-xl aspect-square flex justify-center items-center max-[980px]:text-[1.8rem] max-[780px]:text-[1.3rem] text-[2.2rem]" />
+                                </a>
+                                <a href="">                                
+                                    <iconify-icon icon="fa6-brands:x-twitter" class="text-zinc-50 bg-zinc-700 rounded-xl aspect-square flex justify-center items-center max-[980px]:text-[1.8rem] max-[780px]:text-[1.3rem] text-[2.2rem]" />
+                                </a>
+                                <a href="">                                
+                                    <iconify-icon icon="fa6-brands:whatsapp" class="text-emerald-50 bg-emerald-400 rounded-xl aspect-square flex justify-center items-center max-[980px]:text-[2.2rem] max-[780px]:text-[1.9rem] text-[2.6rem]" />
+                                </a>
+                                <a href="">                                
+                                    <iconify-icon icon="fa6-brands:instagram" class="text-purple-50 bg-gradient-to-tr from-amber-400 via-pink-400 to-purple-400 rounded-xl aspect-square flex justify-center items-center max-[980px]:text-[2.2rem] max-[780px]:text-[1.9rem] text-[2.6rem]" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+        <Footer />
+    </div>
+</Layout>

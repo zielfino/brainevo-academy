@@ -9,25 +9,24 @@ import building from '../assets/images/building.jpg';
 import Content from '../components/Content.astro';
 import { build } from 'astro';
 
-// import { Icon } from 'astro-icon/components'
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const currentPath = "/";
 ---
 
-<Layout>
+<Layout currentPath={currentPath}>
+
+    <!-- SlideNav -->
+
 	<PopUpLanding/>
 	<div class="bg-stone-100">
 
 		<div class="w-full justify-center z-0 flex absolute">
 			<img src={banner.src} oncontextmenu="return false;" class="w-full object-cover object-[center_60%] inset-0
-			 max-[720px]:h-[10rem] max-[1024px]:h-[12rem] h-[14rem] min-2xl:h-[16rem]
+			 max-[720px]:h-[24vh] max-[1024px]:h-[26vh] h-[28vh] min-2xl:h-[32vh]
 			 mask-radial-farthest-corner mask-b-from-70% mask-radial-at-[50%_0%] mask-radial-from-30% mask-radial-to-80%" alt="Client Logo" />
 		</div>
 		<!-- Hero Section -->
-		<section class="relative z-10" id="landing">
-			<div class="flex flex-col items-center-safe text-center space-y-[2rem] select-none 
-			 max-[720px]:pt-[10rem] max-[1024px]:pt-[12rem] pt-[14rem] min-2xl:pt-[16rem] 
-			 mb-[8rem] max-[720px]:mb-[6rem]">
+		<section class="relative z-10 h-[100vh] max-[550px]:h-[80vh] flex justify-center items-center" id="landing">
+			<div class="flex flex-col items-center-safe text-center space-y-[2rem] max-[550px]:pt-[12vh] max-[820px]:pt-[74px] pt-[128px] select-none">
 
 				<!-- Header Text -->
 				<h1 class="text-[64px] leading-[1.1] max-[720px]:font-[600] font-[500] font-sans tracking-tight w-[900px]
@@ -47,7 +46,8 @@ import { build } from 'astro';
 				</p>
 
 				<!-- CTA Button -->
-				<button class="p-[8px] text-zinc-900 rounded-xl border-2 border-zinc-900 transition-all bg-stone-100 
+				<button onclick="window.open('https://api.whatsapp.com/send?phone=6281212346758&text=Halo%2C%20saya%20tertarik%20dengan%20programnya.%20Boleh%20minta%20info%20lebih%20lanjut%3F', '_blank')"
+				class="p-[8px] text-zinc-900 rounded-xl border-2 border-zinc-900 transition-all bg-stone-100 
 				hover:drop-shadow-md hover:drop-shadow-zinc-500/30 drop-shadow-xs drop-shadow-zinc-500/30 
 				hover:-translate-y-[1px] active:bg-zinc-200 group cursor-pointer min-w-max focus:outline-[1px]
 				max-[720px]:p-[4px] max-[720px]:rounded-lg">
@@ -72,43 +72,59 @@ import { build } from 'astro';
 		
 		<!-- Sercices Section -->
 		 <section class="my-[6rem] max-[720px]:my-[4rem]" id="landing">
+			<h1 class="mb-8 col-span-3 ml-4 text-3xl font-bold tracking-wide text-center min-[720px]:hidden">Layanan Kami</h1>
 			<div class="grid w-full grid-cols-2 select-none
 			max-[720px]:flex max-[720px]:flex-col">
 				<!-- Fun Motivation -->
-				<div class="bg-zinc-900 text-stone-100 text-shadow-2xs text-shadow-black/50 py-[4vw] max-[480px]:py-[10vw] flex flex-col justify-center items-center group relative overflow-hidden">
-					<img src={building.src} class="object-cover w-full absolute z-0 scale-125 group-hover:scale-100 max-[480px]:scale-100 transition-all group-hover:opacity-30 max-[480px]:opacity-30 opacity-50">
-					<h2 class="font-bold mb-4 translate-y-[1.5em] max-[1024px]:translate-y-[3em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Fun Motivation</h2>
-					<p class="w-[480px] max-[1024px]:max-w-[320px] max-[1024px]:w-full max-[350px]:px-4 text-justify indent-4 translate-y-[20em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Program yang dirancang untuk membangkitkan semangat anak melalui pendekatan yang menyenangkan dan interaktif. Membantu meningkatkan rasa percaya diri, kreativitas, serta keterampilan sosial mereka. Dengan metode yang positif dan inspiratif, anak-anak diajak untuk membangun pola pikir sukses yang akan bermanfaat bagi masa depan mereka. Cocok untuk berbagai usia dan latar belakang.</p>
+				<div class="bg-zinc-900 text-stone-100 text-shadow-2xs text-shadow-black/50 py-[4vw] max-[720px]:py-[10vw] flex flex-col justify-center items-center group relative overflow-hidden">
+					<img src={building.src} class="object-cover w-full absolute z-0 scale-125 group-hover:scale-100 max-[720px]:scale-100 transition-all group-hover:opacity-10 max-[720px]:opacity-30 opacity-50">
+					<h2 class="font-bold mb-4 translate-y-[2em] max-[1024px]:translate-y-[3em] group-hover:translate-y-0 max-[720px]:translate-y-0 transition-all">Fun Motivation</h2>
+					<div class="w-[480px] max-[1024px]:max-w-[320px] max-[1024px]:w-full max-[350px]:px-4 text-justify indent-4 space-y-2 translate-y-[20em] group-hover:translate-y-0 max-[720px]:translate-y-0 transition-all">
+						<p>Program yang dirancang untuk membangkitkan semangat anak melalui pendekatan yang menyenangkan dan interaktif. Membantu meningkatkan rasa percaya diri, kreativitas, serta keterampilan sosial mereka. Dengan metode yang positif dan inspiratif, anak-anak diajak untuk membangun pola pikir sukses yang akan bermanfaat bagi masa depan mereka. Cocok untuk berbagai usia dan latar belakang.</p>
+						<a href="/service/funmotivation" class="max-[375px]:text-sm max-[1024px]:text-base text-lg mt-2 text-blue-500 hover:underline">Lanjut baca →</a>
+					</div>
 				</div>
 
 				<!-- MidBrain Activation -->
-				<div class="bg-zinc-900 text-stone-100 text-shadow-2xs text-shadow-black/50 py-[4vw] max-[480px]:py-[10vw] flex flex-col justify-center items-center group relative overflow-hidden">
-					<img src={building.src} class="object-cover w-full absolute z-0 scale-125 group-hover:scale-100 max-[480px]:scale-100 transition-all group-hover:opacity-30 max-[480px]:opacity-30 opacity-50">
-					<h2 class="font-bold mb-4 translate-y-[1.5em] max-[1024px]:translate-y-[3em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">MidBrain Activation</h2>
-					<p class="w-[480px] max-[1024px]:max-w-[320px] max-[1024px]:w-full max-[350px]:px-4 text-justify indent-4 translate-y-[20em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Program stimulasi otak tengah yang bertujuan untuk mengoptimalkan fungsi kognitif anak melalui teknik latihan khusus. Membantu meningkatkan konsentrasi, daya ingat, kreativitas, serta kepercayaan diri mereka. Metode ini dirancang untuk mengembangkan keseimbangan antara otak kiri dan kanan sehingga anak dapat belajar dengan lebih efektif.</p>
+				<div class="bg-zinc-900 text-stone-100 text-shadow-2xs text-shadow-black/50 py-[4vw] max-[720px]:py-[10vw] flex flex-col justify-center items-center group relative overflow-hidden">
+					<img src={building.src} class="object-cover w-full absolute z-0 scale-125 group-hover:scale-100 max-[720px]:scale-100 transition-all group-hover:opacity-10 max-[720px]:opacity-30 opacity-50">
+					<h2 class="font-bold mb-4 translate-y-[2em] max-[1024px]:translate-y-[3em] group-hover:translate-y-0 max-[720px]:translate-y-0 transition-all">MidBrain Activation</h2>
+					<div class="w-[480px] max-[1024px]:max-w-[320px] max-[1024px]:w-full max-[350px]:px-4 text-justify indent-4 space-y-2 translate-y-[20em] group-hover:translate-y-0 max-[720px]:translate-y-0 transition-all">
+						<p>Program stimulasi otak tengah yang bertujuan untuk mengoptimalkan fungsi kognitif anak melalui teknik latihan khusus. Membantu meningkatkan konsentrasi, daya ingat, kreativitas, serta kepercayaan diri mereka. Metode ini dirancang untuk mengembangkan keseimbangan antara otak kiri dan kanan sehingga anak dapat belajar dengan lebih efektif.</p>
+						<a href="/service/midbrainactivation" class="max-[375px]:text-sm max-[1024px]:text-base text-lg mt-2 text-blue-500 hover:underline">Lanjut baca →</a>
+					</div>
 				</div>
 
 				<!-- Capacity Building -->
-				<div class="bg-zinc-900 text-stone-100 text-shadow-2xs text-shadow-black/50 py-[4vw] max-[480px]:py-[10vw] flex flex-col justify-center items-center group relative overflow-hidden">
-					<img src={building.src} class="object-cover w-full absolute z-0 scale-125 group-hover:scale-100 max-[480px]:scale-100 transition-all group-hover:opacity-30 max-[480px]:opacity-30 opacity-50">
-					<h2 class="font-bold mb-4 translate-y-[1.5em] max-[1024px]:translate-y-[3em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Capacity Building</h2>
-					<p class="w-[480px] max-[1024px]:max-w-[320px] max-[1024px]:w-full max-[350px]:px-4 text-justify indent-4 translate-y-[20em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Pelatihan yang berfokus pada pengembangan keterampilan individu dan profesional untuk meningkatkan produktivitas serta daya saing di lingkungan kerja. Program ini mencakup penguatan soft skills, kepemimpinan, manajemen waktu, dan kerja sama tim. Cocok untuk karyawan, profesional, maupun individu yang ingin mengembangkan potensinya.</p>
+				<div class="bg-zinc-900 text-stone-100 text-shadow-2xs text-shadow-black/50 py-[4vw] max-[720px]:py-[10vw] flex flex-col justify-center items-center group relative overflow-hidden">
+					<img src={building.src} class="object-cover w-full absolute z-0 scale-125 group-hover:scale-100 max-[720px]:scale-100 transition-all group-hover:opacity-10 max-[720px]:opacity-30 opacity-50">
+					<h2 class="font-bold mb-4 translate-y-[2em] max-[1024px]:translate-y-[3em] group-hover:translate-y-0 max-[720px]:translate-y-0 transition-all">Capacity Building</h2>
+					<div class="w-[480px] max-[1024px]:max-w-[320px] max-[1024px]:w-full max-[350px]:px-4 text-justify indent-4 space-y-2 translate-y-[20em] group-hover:translate-y-0 max-[720px]:translate-y-0 transition-all">
+						<p>Pelatihan yang berfokus pada pengembangan keterampilan individu dan profesional untuk meningkatkan produktivitas serta daya saing di lingkungan kerja. Program ini mencakup penguatan soft skills, kepemimpinan, manajemen waktu, dan kerja sama tim. Cocok untuk karyawan, profesional, maupun individu yang ingin mengembangkan potensinya.</p>
+						<a href="/service/capacitybuilding" class="max-[375px]:text-sm max-[1024px]:text-base text-lg mt-2 text-blue-500 hover:underline">Lanjut baca →</a>
+					</div>
 				</div>
 
 				<!-- Happy Parenting -->
-				<div class="bg-zinc-900 text-stone-100 text-shadow-2xs text-shadow-black/50 py-[4vw] max-[480px]:py-[10vw] flex flex-col justify-center items-center group relative overflow-hidden">
-					<img src={building.src} class="object-cover w-full absolute z-0 scale-125 group-hover:scale-100 max-[480px]:scale-100 transition-all group-hover:opacity-30 max-[480px]:opacity-30 opacity-50">
-					<h2 class="font-bold mb-4 translate-y-[1.5em] max-[1024px]:translate-y-[3em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Happy Parenting</h2>
-					<p class="w-[480px] max-[1024px]:max-w-[320px] max-[1024px]:w-full max-[350px]:px-4 text-justify indent-4 translate-y-[20em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Program yang dirancang untuk mendukung orang tua dalam memahami dan mengasuh anak dengan lebih baik. Memberikan wawasan tentang pola asuh yang positif, komunikasi efektif, serta cara membangun hubungan yang harmonis dalam keluarga. Dilengkapi dengan metode praktis yang membantu orang tua menghadapi tantangan dalam perkembangan anak.</p>
+				<div class="bg-zinc-900 text-stone-100 text-shadow-2xs text-shadow-black/50 py-[4vw] max-[720px]:py-[10vw] flex flex-col justify-center items-center group relative overflow-hidden">
+					<img src={building.src} class="object-cover w-full absolute z-0 scale-125 group-hover:scale-100 max-[720px]:scale-100 transition-all group-hover:opacity-10 max-[720px]:opacity-30 opacity-50">
+					<h2 class="font-bold mb-4 translate-y-[2em] max-[1024px]:translate-y-[3em] group-hover:translate-y-0 max-[720px]:translate-y-0 transition-all">Happy Parenting</h2>
+					<div class="w-[480px] max-[1024px]:max-w-[320px] max-[1024px]:w-full max-[350px]:px-4 text-justify indent-4 space-y-2 translate-y-[20em] group-hover:translate-y-0 max-[720px]:translate-y-0 transition-all">
+						<p>Program yang dirancang untuk mendukung orang tua dalam memahami dan mengasuh anak dengan lebih baik. Memberikan wawasan tentang pola asuh yang positif, komunikasi efektif, serta cara membangun hubungan yang harmonis dalam keluarga. Dilengkapi dengan metode praktis yang membantu orang tua menghadapi tantangan dalam perkembangan anak.</p>
+						<a href="/service/happyparenting" class="max-[375px]:text-sm max-[1024px]:text-base text-lg mt-2 text-blue-500 hover:underline">Lanjut baca →</a>
+					</div>
 				</div>
 
 
 				
 				<div class="col-span-2 max-[720px]:col-span-1">
-					<div class="bg-zinc-900 text-stone-100 text-shadow-2xs text-shadow-black/50 py-[4vw] max-[480px]:py-[10vw] flex flex-col justify-center items-center group relative overflow-hidden">
-						<img src={building.src} class="object-cover w-full absolute z-0 scale-125 group-hover:scale-100 max-[480px]:scale-100 transition-all group-hover:opacity-30 max-[480px]:opacity-30 opacity-50">
-						<h2 class="font-bold mb-4 translate-y-[1.5em] max-[1024px]:translate-y-[3em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Happy Parenting</h2>
-						<p class="w-[480px] max-[1024px]:max-w-[320px] max-[1024px]:w-full max-[350px]:px-4 text-justify indent-4 translate-y-[20em] group-hover:translate-y-0 max-[480px]:translate-y-0 transition-all">Program yang dirancang untuk mendukung orang tua dalam memahami dan mengasuh anak dengan lebih baik. Memberikan wawasan tentang pola asuh yang positif, komunikasi efektif, serta cara membangun hubungan yang harmonis dalam keluarga. Dilengkapi dengan metode praktis yang membantu orang tua menghadapi tantangan dalam perkembangan anak.</p>
+					<div class="bg-zinc-900 text-stone-100 text-shadow-2xs text-shadow-black/50 py-[4vw] max-[720px]:py-[10vw] flex flex-col justify-center items-center group relative overflow-hidden">
+						<img src={building.src} class="object-cover w-full absolute z-0 scale-125 group-hover:scale-100 max-[720px]:scale-100 transition-all group-hover:opacity-10 max-[720px]:opacity-30 opacity-50">
+						<h2 class="font-bold mb-4 translate-y-[2em] max-[1024px]:translate-y-[3em] group-hover:translate-y-0 max-[720px]:translate-y-0 transition-all">Fingerprint Test</h2>
+						<div class="w-[480px] max-[1024px]:max-w-[320px] max-[1024px]:w-full max-[350px]:px-4 text-justify indent-4 space-y-2 translate-y-[20em] group-hover:translate-y-0 max-[720px]:translate-y-0 transition-all">
+							<p>Tes analisis sidik jari yang membantu mengenali potensi bawaan, gaya belajar, kecerdasan dominan, hingga karakter alami seseorang. Cocok untuk anak, remaja, hingga dewasa yang ingin memahami diri lebih dalam dan menentukan arah pengembangan yang sesuai sejak dini.</p>
+							<a href="/service/fingerprinttest" class="max-[375px]:text-sm max-[1024px]:text-base text-lg mt-2 text-blue-500 hover:underline">Lanjut baca →</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -133,7 +149,7 @@ import { build } from 'astro';
 
 				<!-- Contact -->
 				<div class="flex flex-col">
-					<h2 class="text-[48px] leading-[1.2] font-[700] min-[720px]:mb-8 font-sans tracking-tight max-[720px]:ml-8 max-[450px]:translate-0 max-[720px]:-translate-x-16">Kantor Kami</h2>
+					<h2 class="text-[48px] leading-[1.2] font-[700] min-[720px]:mb-8 tracking-tight max-[720px]:ml-8 max-[450px]:translate-0 max-[720px]:-translate-x-16 font-serif">Kantor Kami</h2>
 					<div class="flex max-[720px]:flex-col">
 						<!-- Image -->
 						<div class="w-[300px] aspect-[2/1] max-[720px]:order-2">
@@ -148,11 +164,11 @@ import { build } from 'astro';
 						<!-- Content -->
 						<div class="m-8 space-y-4 max-[720px]:order-1 max-[720px]:mb-12 max-[450px]:translate-0 max-[720px]:-translate-x-16">
 							<div>
-								<h3 class="leading-[1] font-[600] mb-2 font-sans">Alamat</h3>
+								<h4 class="leading-[1] font-[600] mb-2 font-sans">Alamat</h4>
 								<p class="leading-[1.4] font-[500] text-zinc-900/70 font-read tracking-wider">Jl. Haji Baping No. 56,<br> Ciracas, Jakarta Timur</p>
 							</div>
 							<div>
-								<h3 class="leading-[1] font-[600] mb-2 font-sans">Jam Oprasional</h3>
+								<h4 class="leading-[1] font-[600] mb-2 font-sans">Jam Oprasional</h4>
 								<p class="leading-[1.4] font-[500] text-zinc-900/70 font-read tracking-wider">09:00 WIB - 18:00 WIB</p>
 							</div>
 						</div>
@@ -171,9 +187,9 @@ import { build } from 'astro';
 				<div class="text-[16px] space-x-4 leading-[1.4] font-[400] text-zinc-900 tracking-wider flex items-center m-6 min-[720px]:ml-12 max-[720px]:mb-0">
 					<p>©2025 BrainEvo Academy</p>
 					<span class="h-4 border-l border-black max-[1024px]:hidden" />
-					<div class="w-6 h-6 bg-red-300 rounded-full max-[1024px]:hidden" />
-					<div class="w-6 h-6 bg-red-300 rounded-full max-[1024px]:hidden" />
-					<div class="w-6 h-6 bg-red-300 rounded-full max-[1024px]:hidden" />
+					<a href="https://brainevo.com/" target="_blank" class="hover:text-red-300 translate-y-[0.2em]"><iconify-icon icon="streamline:web" class="max-[375px]:text-base max-[1024px]:text-lg text-xl"/></a>
+					<a href="https://www.instagram.com/sidikjariku" target="_blank" class="hover:text-red-300 translate-y-[0.2em]"><iconify-icon icon="bi:instagram" class="max-[375px]:text-base max-[1024px]:text-lg text-xl"/></a>
+					<a href="/" class="hover:text-red-300 translate-y-[0.2em]"><iconify-icon icon="jam:linkedin" class="max-[375px]:text-base max-[1024px]:text-lg text-xl"/></a>
 				</div>
 				<div class="space-x-4 text-[16px] leading-[1.4] font-[400] text-zinc-900 tracking-wider flex items-center m-6 min-[720px]:mr-12">
 					<a href="/" class="hover:text-red-300"><p>Privacy</p></a>

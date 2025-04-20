@@ -3,6 +3,7 @@ import "../styles/global.css";
 import NavBar from "../components/NavBar.astro";
 
 const { title = "BrainEvo Academy" } = Astro.props;
+const { currentPath } = Astro.props;
 ---
 
 <!doctype html>
@@ -15,10 +16,10 @@ const { title = "BrainEvo Academy" } = Astro.props;
 		<title>{title}</title>
 		<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" />
 	</head>
-	<body class="selection:bg-orange-200 selection:text-white">
+	<body class="selection:bg-orange-200 selection:text-white select-text">
 		<!-- screen info -->
 		<div id="screen-info" class="font-mono fixed top-4 left-4 text-sm select-none z-[101] text-red-500 font-black"></div>
-		<NavBar />
+		<NavBar currentPath={currentPath} />
 		<slot />
 		<script>
 			const getTailwindSize = (width) => {

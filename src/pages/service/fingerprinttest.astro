@@ -1,0 +1,56 @@
+---
+import Footer from "../../components/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import banner from '../../assets/images/landingbackground.jpg';
+---
+
+<Layout title="Fingerprint Test - BrainEvo Academy">
+
+    <div class="w-full justify-center z-0 flex absolute">
+        <img src={banner.src} oncontextmenu="return false;" class="w-full object-cover object-[center_60%] inset-0
+         max-[720px]:h-[20vh] max-[1024px]:h-[22vh] h-[24vh] min-2xl:h-[28vh]
+         mask-radial-farthest-corner mask-b-from-70% mask-radial-at-[50%_0%] mask-radial-from-30% mask-radial-to-80%" alt="Client Logo" />
+    </div>
+
+    <section id="landing">
+        <div class="w-full flex flex-col items-center justify-center mb-32 max-[720px]:mb-4 pt-48 max-[720px]:pt-32">
+            <div class="max-w-4xl w-[calc(100%-2rem)]">
+                <h1 class="max-[375px]:text-4xl max-[1024px]:text-5xl text-6xl
+                font-[600] mb-4">
+                    Fingerprint Test
+                </h1>
+                <p class="indent-8 text-justify max-w-2xl pl-8 mt-8 max-[720px]:p-0">
+                    Di BrainEvo, kami menyediakan layanan Fingerprint Test (DMIT)—Dermatoglyphics Multiple Intelligence Test, yaitu metode ilmiah untuk mengenali potensi bawaan anak melalui pola sidik jari. Mungkin terdengar sederhana, tapi hasilnya luar biasa. Sidik jari yang terbentuk sejak janin ternyata berkaitan erat dengan struktur otak, dan melalui analisis ini, kita bisa mengetahui gaya belajar anak, dominasi otak kiri/kanan, kekuatan kecerdasan majemuk, bahkan tipe komunikasi yang paling efektif untuk mereka.
+                </p>
+                <p class="indent-8 text-justify max-w-2xl pl-8 mt-8 max-[720px]:p-0">
+                    Kenapa ini penting? Karena setiap anak itu unik. Ada yang unggul secara logis, ada yang intuitif, visual, musikal, atau kinestetik. Dengan memahami potensi alami mereka sejak dini, orang tua bisa lebih mudah mendampingi anak sesuai dengan cara belajar dan kekuatan aslinya. Hasil tes ini bukan label, tapi panduan—yang membantu kita membentuk pola asuh, arah pendidikan, dan bahkan aktivitas harian yang lebih tepat sasaran. Dengan satu tes, kita bisa lebih mengenal anak, bukan hanya dari perilakunya, tapi dari dalam dirinya yang sebenarnya.
+                </p>
+            </div>
+            <div class="max-w-4xl w-full pr-8 max-[720px]:p-0">
+                <div class="bg-sky-300 rounded-xl w-[calc(100%-2rem)] max-w-[480px] aspect-[3/2] ml-auto max-[720px]:mr-auto mt-8
+                max-[480px]:m-0 max-[480px]:mt-8 max-[480px]:w-full max-[480px]:rounded-none"></div>
+            </div>
+            <div class="max-w-4xl w-[calc(100%-2rem)] mt-32 max-[720px]:mt-12">
+                <h2 class="font-[600] mb-4">
+                    Gallery
+                </h2>
+                <div class="grid grid-cols-3 max-[480px]:grid-cols-2 gap-4">
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <Footer/>
+</Layout>

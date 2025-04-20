@@ -3,29 +3,38 @@ import Trusted from '../components/Trusted.astro';
 import CTA from '../components/CTA.astro';
 import Footer from '../components/Footer.astro';
 import Layout from '../layouts/Layout.astro';
+import Content from '../components/Content.astro';
+const currentPath = "/about";
 ---
 
-<Layout title="About - BrainEvo Academy">
+<Layout title="About - BrainEvo Academy" currentPath={currentPath}>
 	<div class="">
 
 		<!-- Hero Section -->
-		<section>
+		<section id="landing">
 			<div class="flex flex-col items-center justify-center">
-				<div class="text-center mt-[12rem] mb-12">
-					<h1 class="text-[3rem] leading-[1.2] font-[500] mb-4 font-sans tracking-tight">
+				<div class="text-center mt-[10rem] mb-12 max-[550px]:mb-4 max-[550px]:mt-[8rem]">
+					<!-- <h1 class="text-[3rem] leading-[1.2] font-[500] mb-4 font-sans tracking-tight">
 						Setiap anak, orang tua, dan individu memiliki <br>potensi luar biasa. Kami hadir untuk menemani <br>proses menemukannya.
+					</h1> -->
+					<h1 class="text-[48px] leading-[1.1] max-[550px]:font-[600] font-[500] font-sans tracking-tight w-[960px]
+					max-[375px]:text-2xl max-[375px]:w-[300px]
+					max-[550px]:text-3xl max-[550px]:w-[350px] max-[550px]:hidden
+					max-[820px]:mb-4 max-[820px]:w-[530px]
+					max-[1024px]:text-4xl max-[1024px]:w-[730px]">
+						Setiap anak, orang tua, dan individu memiliki potensi luar biasa. Kami hadir untuk menemani proses menemukannya.
 					</h1>
-					<!-- <button class="p-[8px] rounded-xl border-2 cursor-pointer">
-						<div class="flex items-center space-x-[8px] font-sans">
-							<span class="leading-[1] p-[8px]">Hubungi Kami</span>
-							<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-zinc-900 text-stone-100">
-								->
-							</div>
-						</div>
-					</button> -->
+					<h1 class="text-[64px] leading-[1.1] max-[720px]:font-[600] font-[500] tracking-tight w-[900px]
+					max-[375px]:text-3xl max-[375px]:w-[300px]
+					max-[550px]:text-4xl max-[550px]:w-[350px] 
+					max-[820px]:mb-4 max-[820px]:w-[455px]
+					max-[1024px]:text-5xl max-[1024px]:w-[680px]
+					min-[550px]:hidden font-serif">
+						Tentang BrainEvo Academy
+					</h1>
 				</div>
 				
-				<div class="my-8 w-3xl">
+				<div class="my-8 max-w-3xl w-full max-[800px]:px-12 max-[540px]:px-6">
 					<p class="text-base font-medium tracking-wide text-justify text-zinc-700 font-read indent-8">
 						Di BrainEvo Academy, kami percaya bahwa setiap manusia memiliki keunikan yang patut ditemukan dan dikembangkan. Dengan pendekatan yang penuh kasih, kami hadir bukan hanya sebagai penyedia pelatihan, tetapi sebagai mitra yang melayani dengan hati—untuk anak-anak, orang tua, dan profesional. Kami ingin menjadi bagian dari perjalanan setiap individu menuju versi terbaik dari dirinya.
 					</p>
@@ -34,10 +43,10 @@ import Layout from '../layouts/Layout.astro';
 		</section>
 				
 		<!-- Content -->
-		<section>
+		<section id="landing">
 			<div class="flex flex-col items-center justify-center">
-				<div class="my-8 w-3xl">
-					<h2 class="mb-4 font-sans text-4xl font-semibold">Tujuan & Nilai Inti</h2>
+				<div class="my-8 max-w-3xl w-full max-[800px]:px-12 max-[540px]:px-6">
+					<h3 class="mb-4 font-sans text-4xl font-semibold">Tujuan & Nilai Inti</h3>
 					<p class="text-base font-medium tracking-wide text-justify text-zinc-700 font-read indent-8">
 						Kami mengembangkan solusi pengembangan diri yang nyata dan berlandaskan ilmu, untuk membentuk masa depan yang lebih baik. BrainEvo Academy memiliki tujuan yang jelas:
 					</p>
@@ -51,34 +60,29 @@ import Layout from '../layouts/Layout.astro';
 						Kami ingin setiap peserta pelatihan merasa lebih yakin, lebih siap, dan lebih mampu menghadapi tantangan kehidupan.
 					</p>
 				</div>
-			</div>
-		</section>
-		
-		<!-- Content -->
-		<section>
-			<div class="mb-32 mt-16">
-				<h2 class="text-[32px] leading-[1.2] font-[600] mb-12 font-sans tracking-tight text-center">Mengapa BrainEvo Academy?</h2>
-				<div class="flex justify-center w-full overflow-scroll no-scrollbar cursor-grab">
-					<div class="select-none-safe w-3xl">
-						<div class="flex justify-center space-x-8 -translate-x-24 w-max">
-							<!-- <div class="w-[50px]"></div>	 -->
-							<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">12+ tahun pengalaman</div>
-							<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Metode ilmiah & terbukti</div>
-							<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Pendekatan personal</div>
-							<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Dipercaya ribuan klien</div>
-							<div class="w-[300px] h-[400px] bg-blue-300 uniq-window flex justify-center items-center">Fokus pada hasil nyata</div>
-							<div class="w-[50px]"></div>
+				<div class="w-full max-w-3xl flex flex-col items-end max-[800px]:px-12 max-[540px]:px-6">
+					<div class="flex max-[540px]:space-y-8 min-[540px]:space-x-16 max-[540px]:flex-col">
+						<div>
+							<div class="text-right font-read max-[375px]:text-xl max-[1024px]:text-2xl text-[32px] font-[600] text-red-500">12 +</div>
+							<p class="italic font-[400] font-read">Tahun Pengalaman</p>
+						</div>
+						<div>
+							<div class="text-right font-read max-[375px]:text-xl max-[1024px]:text-2xl text-[32px] font-[600] text-red-500">2000+</div>
+							<p class="italic font-[400] font-read">Total Jumlah Klien</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
+		
+		<!-- Content -->
+		 <Content />
 				
 		<!-- Content -->
-		<section>
+		<section id="landing">
 			<div class="flex my-32 flex-col items-center justify-center">
-				<div class="space-y-4 w-3xl">
-					<h2 class="mb-4 font-sans text-4xl font-semibold">Kisah Kami</h2>
+				<div class="space-y-4 max-w-3xl w-full max-[800px]:px-12 max-[540px]:px-6">
+					<h3 class="mb-4 text-4xl font-semibold font-sans">Kisah Kami</h3>
 					<p class="text-base font-medium tracking-wide text-justify text-zinc-700 font-read indent-8">
 						Berawal dari mimpi untuk membantu anak-anak lebih percaya diri, kami kini tumbuh menjadi pusat pelatihan yang menyentuh ribuan kehidupan.
 					</p>
@@ -99,7 +103,7 @@ import Layout from '../layouts/Layout.astro';
 		<section id="landing">
 			<div class="flex flex-col items-center justify-center my-24">
 				<h3 class="leading-[1.2] font-sans tracking-tight mb-12 max-[720px]:mb-8">Tim kami</h3>
-				<div class="flex space-x-8">
+				<div class="flex min-[720px]:space-x-8 max-[720px]:flex-col max-[720px]:space-y-12 max-[720px]:text-center">
 					<div>
 						<div class="w-[200px] aspect-[4/5] bg-blue-300 rounded-lg"></div>
 						<h4 class="mt-4 mb-2 font-sans text-base font-semibold text-red-500">Haris Yusuf Arifin</h4>
@@ -107,7 +111,7 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 					<div>
 						<div class="w-[200px] aspect-[4/5] bg-blue-300 rounded-lg"></div>
-						<h4 class="mt-4 mb-2 font-sans text-base font-semibold text-red-500">Ranny Rifqianie Taufiq, S.Hi</h4>
+						<h4 class="mt-4 mb-2 font-sans text-base font-semibold text-red-500">Ranny Rifqianie <br>Taufiq, S.Hi</h4>
 						<div class="text-sm leading-5 font-read text-zinc-900/70" >Praktisi Parenting <br>Praktisi Analisis Sidikjari <br>Fun Motivation Coach <br>Midbrain Activation Coach</div>
 					</div>
 					<div>

@@ -1,0 +1,75 @@
+---
+import Blogs from '../../../components/Blogs.astro';
+import Footer from '../../../components/Footer.astro';
+import Pagination from '../../../components/Pagination.astro';
+import Layout from '../../../layouts/Layout.astro';
+import { contentfulClient } from "../../../lib/contentful";
+
+// Ambil parameter halaman
+const { page } = Astro.params;
+const currentPage = parseInt(page ?? '1');
+
+// GetStaticPaths: diperlukan untuk route dinamis
+export async function getStaticPaths() {
+  const PER_PAGE = 6;
+  const entries = await contentfulClient.getEntries({
+    content_type: "blogPostBrainEvoAcademy",
+  });
+
+  const totalPosts = entries.total;
+  const totalPages = Math.ceil(totalPosts / PER_PAGE);
+
+  return Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: `${i + 1}` },
+  }));
+}
+---
+
+<Layout title="Article - BrainEvo Academy" currentPath = "/article";>
+    <div class="">
+
+        <!-- Articles -->
+         <section class="w-full flex justify-center mb-16 pt-48">
+            <div class="grid grid-cols-3 w-[1024px] gap-4 px-4 max-[550px]:px-10 max-[400px]:px-4 max-[720px]:px-8">
+                <h1 class="mb-4 col-span-3 ml-4 text-3xl font-bold tracking-wide font-serif">Artikel - page {currentPage}</h1>
+
+                <!-- List -->
+                <div class="col-span-2 grid grid-cols-2 gap-4 max-[720px]:col-span-3 min-w-[280px]">
+                    <!-- Cards -->
+                     <Blogs page={currentPage} />
+                     
+                    <!-- Pagination -->
+                     <Pagination currentPage={currentPage} />
+                </div>
+    
+                <!-- aside -->
+                <aside class="max-[720px]:hidden">
+                    <div class="sticky top-[20dvh]">
+                        <div class=" bg-red-300 h-[50dvh] rounded-2xl flex justify-center items-center">test</div>
+                        <div class="mt-4">
+                            <div class="mb-2 text-xl font-semibold select-none">Share artikel ini</div>
+                            <div class="grid grid-cols-5 gap-2">
+                                <a href="">                                
+                                    <iconify-icon icon="fa6-brands:google" class="text-red-50 bg-red-400 rounded-xl aspect-square flex justify-center items-center max-[980px]:text-[1.7rem] max-[780px]:text-[1.4rem] text-[2.1rem]" />
+                                </a>
+                                <a href="">                                
+                                    <iconify-icon icon="fa6-brands:facebook-f" class="text-sky-50 bg-sky-500 rounded-xl aspect-square flex justify-center items-center max-[980px]:text-[1.8rem] max-[780px]:text-[1.3rem] text-[2.2rem]" />
+                                </a>
+                                <a href="">                                
+                                    <iconify-icon icon="fa6-brands:x-twitter" class="text-zinc-50 bg-zinc-700 rounded-xl aspect-square flex justify-center items-center max-[980px]:text-[1.8rem] max-[780px]:text-[1.3rem] text-[2.2rem]" />
+                                </a>
+                                <a href="">                                
+                                    <iconify-icon icon="fa6-brands:whatsapp" class="text-emerald-50 bg-emerald-400 rounded-xl aspect-square flex justify-center items-center max-[980px]:text-[2.2rem] max-[780px]:text-[1.9rem] text-[2.6rem]" />
+                                </a>
+                                <a href="">                                
+                                    <iconify-icon icon="fa6-brands:instagram" class="text-purple-50 bg-gradient-to-tr from-amber-400 via-pink-400 to-purple-400 rounded-xl aspect-square flex justify-center items-center max-[980px]:text-[2.2rem] max-[780px]:text-[1.9rem] text-[2.6rem]" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+        <Footer />
+    </div>
+</Layout>

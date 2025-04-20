@@ -1,0 +1,56 @@
+---
+import Footer from "../../components/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import banner from '../../assets/images/landingbackground.jpg';
+---
+
+<Layout title="Midbrain Activation - BrainEvo Academy">
+    <section id="landing">
+
+        <div class="w-full justify-center z-0 flex absolute">
+            <img src={banner.src} oncontextmenu="return false;" class="w-full object-cover object-[center_60%] inset-0
+             max-[720px]:h-[20vh] max-[1024px]:h-[22vh] h-[24vh] min-2xl:h-[28vh]
+             mask-radial-farthest-corner mask-b-from-70% mask-radial-at-[50%_0%] mask-radial-from-30% mask-radial-to-80%" alt="Client Logo" />
+        </div>
+        
+        <div class="w-full flex flex-col items-center justify-center mb-32 max-[720px]:mb-4 pt-48 max-[720px]:pt-32">
+            <div class="max-w-4xl w-[calc(100%-2rem)]">
+                <h1 class="max-[375px]:text-4xl max-[1024px]:text-5xl text-6xl
+                font-[600] mb-4">
+                Midbrain Activation
+                </h1>
+                <p class="indent-8 text-justify max-w-2xl pl-8 mt-8 max-[720px]:p-0">
+                    Di BrainEvo, salah satu program unggulan kami adalah Midbrain Activation, atau aktivasi otak tengah. Mungkin terdengar teknis, tapi sederhananya, ini adalah metode untuk menstimulasi bagian otak yang berperan dalam konsentrasi, intuisi, kreativitas, dan keseimbangan emosi. Dengan teknik khusus—seperti meditasi ringan, permainan sensorik, dan pelatihan fokus—anak-anak diajak untuk "mengaktifkan" potensi alami mereka, terutama yang belum tergali melalui pembelajaran biasa.
+                </p>
+                <p class="indent-8 text-justify max-w-2xl pl-8 mt-8 max-[720px]:p-0">
+                    Yang menarik, setelah mengikuti proses ini, banyak anak menunjukkan kemampuan baru seperti fokus yang meningkat, daya ingat yang lebih kuat, bahkan intuisi yang lebih tajam. Beberapa anak jadi lebih tenang, lebih percaya diri, dan cepat menyerap informasi. Meskipun hasil bisa berbeda-beda pada tiap anak, program ini dirancang secara positif dan menyenangkan—tanpa tekanan, tanpa paksaan. Kami percaya bahwa dengan stimulasi yang tepat, otak anak-anak bisa berkembang lebih optimal, seimbang antara logika dan intuisi. Dan yang paling penting: semua dilakukan dalam suasana yang fun, aman, dan penuh semangat!
+                </p>
+            </div>
+            <div class="max-w-4xl w-full pr-8 max-[720px]:p-0">
+                <div class="bg-sky-300 rounded-xl w-[calc(100%-2rem)] max-w-[480px] aspect-[3/2] ml-auto max-[720px]:mr-auto mt-8
+                max-[480px]:m-0 max-[480px]:mt-8 max-[480px]:w-full max-[480px]:rounded-none"></div>
+            </div>
+            <div class="max-w-4xl w-[calc(100%-2rem)] mt-32 max-[720px]:mt-12">
+                <h2 class="font-[600] mb-4">
+                    Gallery
+                </h2>
+                <div class="grid grid-cols-3 max-[480px]:grid-cols-2 gap-4">
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <Footer/>
+</Layout>

@@ -1,9 +1,50 @@
 ---
+// import { contentfulClient } from "../lib/contentful";
+// import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+// import type { EntryFieldTypes, Asset } from "contentful";
+// import CardPost from "./CardPost.astro";
+// import Modal from '../components/Modal.astro';
+
+// interface BlogPost {
+//     contentTypeId: "blogPostBrainEvoAcademy",
+//     fields: {
+//         title: EntryFieldTypes.Text;
+//         excerpt: EntryFieldTypes.Text;
+//         featuredImage: Asset;
+//         author: EntryFieldTypes.Text;
+//         publishedDate: EntryFieldTypes.Date;
+//         content : EntryFieldTypes.RichText;
+//         slug : EntryFieldTypes.Text;
+//     }
+// }
+
+// // Ambil query parameter ?page=
+// const page = parseInt(Astro.url.searchParams.get("page") ?? "1");
+// const PER_PAGE = 6;
+
+// // Hitung index slice
+// const start = (page - 1) * PER_PAGE;
+// const end = start + PER_PAGE;
+
+// // Ambil semua entries
+// const entries = await contentfulClient.getEntries<BlogPost>({
+//     content_type: "blogPostBrainEvoAcademy",
+// });
+
+// // Potong kontennya berdasarkan halaman
+// const paginatedItems = entries.items.slice(start, end);
+
 import { contentfulClient } from "../lib/contentful";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import type { EntryFieldTypes, Asset } from "contentful";
 import CardPost from "./CardPost.astro";
-import Modal from '../components/Modal.astro';
+
+interface Props {
+  page: number;
+}
+const { page } = Astro.props;
+const PER_PAGE = 6;
+const start = (page - 1) * PER_PAGE;
+const end = start + PER_PAGE;
 
 interface BlogPost {
   contentTypeId: "blogPostBrainEvoAcademy",
@@ -13,45 +54,36 @@ interface BlogPost {
     featuredImage: Asset;
     author: EntryFieldTypes.Text;
     publishedDate: EntryFieldTypes.Date;
-    content : EntryFieldTypes.RichText,
+    content : EntryFieldTypes.RichText;
+    slug : EntryFieldTypes.Text;
   }
 }
 
-// Ambil query parameter ?page=
-const page = parseInt(Astro.url.searchParams.get("page") ?? "1");
-const PER_PAGE = 6;
-
-// Hitung index slice
-const start = (page - 1) * PER_PAGE;
-const end = start + PER_PAGE;
-
-// Ambil semua entries
 const entries = await contentfulClient.getEntries<BlogPost>({
   content_type: "blogPostBrainEvoAcademy",
 });
-
-// Potong kontennya berdasarkan halaman
 const paginatedItems = entries.items.slice(start, end);
 ---
 
-<body>
-  {paginatedItems.map((item, index) => (
-    <section>
-        <CardPost 
-            title={item.fields.title} 
-            excerpt={item.fields.excerpt} 
-            image={"https:" + item.fields.featuredImage.fields.file.url} 
-            index={start + index + 1} 
-        />
-    </section>
 
-    <!-- Modals -->
-     <Modal 
-        title={item.fields.title} 
-        author={item.fields.author}
-        date={item.fields.publishedDate}
-        index={start + index + 1} 
-        content={item.fields.content}
-    />
-  ))}
+<body>
+    {paginatedItems.map((item, index) => (
+        <section class="max-[550px]:col-span-2">
+            <CardPost 
+                title={item.fields.title} 
+                excerpt={item.fields.excerpt} 
+                image={"https:" + item.fields.featuredImage.fields.file.url} 
+                index={start + index + 1} 
+                slug={item.fields.slug} 
+            />
+        </section>
+
+        // <Modal 
+        //     title={item.fields.title} 
+        //     author={item.fields.author}
+        //     date={item.fields.publishedDate}
+        //     index={start + index + 1} 
+        //     content={item.fields.content}
+        // />
+    ))}
 </body>

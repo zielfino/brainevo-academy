@@ -1,0 +1,56 @@
+---
+import Footer from "../../components/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import banner from '../../assets/images/landingbackground.jpg';
+---
+
+<Layout title="Happy Parenting - BrainEvo Academy">
+    <section id="landing">
+
+        <div class="w-full justify-center z-0 flex absolute">
+            <img src={banner.src} oncontextmenu="return false;" class="w-full object-cover object-[center_60%] inset-0
+             max-[720px]:h-[20vh] max-[1024px]:h-[22vh] h-[24vh] min-2xl:h-[28vh]
+             mask-radial-farthest-corner mask-b-from-70% mask-radial-at-[50%_0%] mask-radial-from-30% mask-radial-to-80%" alt="Client Logo" />
+        </div>
+        
+        <div class="w-full flex flex-col items-center justify-center mb-32 max-[720px]:mb-4 pt-48 max-[720px]:pt-32">
+            <div class="max-w-4xl w-[calc(100%-2rem)]">
+                <h1 class="max-[375px]:text-4xl max-[1024px]:text-5xl text-6xl
+                font-[600] mb-4">
+                    Happy Parenting
+                </h1>
+                <p class="indent-8 text-justify max-w-2xl pl-8 mt-8 max-[720px]:p-0">
+                    Di BrainEvo, kami percaya bahwa tumbuh kembang anak yang optimal berawal dari rumah yang penuh cinta dan dukungan. Itulah mengapa kami menghadirkan program Happy Parenting—sebuah pendekatan yang membantu orang tua membangun hubungan yang positif, sehat, dan penuh makna dengan anak. Melalui kelas, sesi sharing, dan tips praktis, kami bantu orang tua memahami cara berkomunikasi yang efektif, memberi dukungan emosional, dan menciptakan suasana rumah yang kondusif untuk pertumbuhan anak.
+                </p>
+                <p class="indent-8 text-justify max-w-2xl pl-8 mt-8 max-[720px]:p-0">
+                    Happy Parenting bukan tentang jadi orang tua yang sempurna—tapi tentang menjadi orang tua yang hadir, peduli, dan terus bertumbuh bersama anak. Kami menggabungkan wawasan psikologi anak, pendekatan mindful parenting, dan metode interaktif agar setiap orang tua merasa lebih percaya diri dalam menjalani peran penting ini. Karena saat orang tua bahagia dan tenang, anak pun akan tumbuh dengan rasa aman, percaya diri, dan penuh semangat.
+                </p>
+            </div>
+            <div class="max-w-4xl w-full pr-8 max-[720px]:p-0">
+                <div class="bg-sky-300 rounded-xl w-[calc(100%-2rem)] max-w-[480px] aspect-[3/2] ml-auto max-[720px]:mr-auto mt-8
+                max-[480px]:m-0 max-[480px]:mt-8 max-[480px]:w-full max-[480px]:rounded-none"></div>
+            </div>
+            <div class="max-w-4xl w-[calc(100%-2rem)] mt-32 max-[720px]:mt-12">
+                <h2 class="font-[600] mb-4">
+                    Gallery
+                </h2>
+                <div class="grid grid-cols-3 max-[480px]:grid-cols-2 gap-4">
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                    <div class="bg-sky-300 aspect-square"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <Footer/>
+</Layout>
